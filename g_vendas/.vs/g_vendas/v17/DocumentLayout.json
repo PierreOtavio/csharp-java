@@ -1,0 +1,109 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5B2B4F15-FF8B-4979-A2C4-B69B2CF56EB5}|g_vendas.csproj|c:\\users\\perre\\onedrive\\documentos\\github\\csharp-java\\g_vendas\\dbquery\\consultoruniversal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B2B4F15-FF8B-4979-A2C4-B69B2CF56EB5}|g_vendas.csproj|solutionrelative:dbquery\\consultoruniversal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B2B4F15-FF8B-4979-A2C4-B69B2CF56EB5}|g_vendas.csproj|c:\\users\\perre\\onedrive\\documentos\\github\\csharp-java\\g_vendas\\dal\u0027s\\itensvendasdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B2B4F15-FF8B-4979-A2C4-B69B2CF56EB5}|g_vendas.csproj|solutionrelative:dal\u0027s\\itensvendasdal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B2B4F15-FF8B-4979-A2C4-B69B2CF56EB5}|g_vendas.csproj|c:\\users\\perre\\onedrive\\documentos\\github\\csharp-java\\g_vendas\\bll\u0027s\\itensvendasbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B2B4F15-FF8B-4979-A2C4-B69B2CF56EB5}|g_vendas.csproj|solutionrelative:bll\u0027s\\itensvendasbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B2B4F15-FF8B-4979-A2C4-B69B2CF56EB5}|g_vendas.csproj|c:\\users\\perre\\onedrive\\documentos\\github\\csharp-java\\g_vendas\\bll\u0027s\\vendasbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B2B4F15-FF8B-4979-A2C4-B69B2CF56EB5}|g_vendas.csproj|solutionrelative:bll\u0027s\\vendasbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B2B4F15-FF8B-4979-A2C4-B69B2CF56EB5}|g_vendas.csproj|c:\\users\\perre\\onedrive\\documentos\\github\\csharp-java\\g_vendas\\controllers\\itensvendascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B2B4F15-FF8B-4979-A2C4-B69B2CF56EB5}|g_vendas.csproj|solutionrelative:controllers\\itensvendascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 231,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ConsultorUniversal.cs",
+              "DocumentMoniker": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\DBQuery\\ConsultorUniversal.cs",
+              "RelativeDocumentMoniker": "DBQuery\\ConsultorUniversal.cs",
+              "ToolTip": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\DBQuery\\ConsultorUniversal.cs",
+              "RelativeToolTip": "DBQuery\\ConsultorUniversal.cs",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAiwJ4AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-28T00:12:07.595Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "VendasBLL.cs",
+              "DocumentMoniker": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\BLL\u0027s\\VendasBLL.cs",
+              "RelativeDocumentMoniker": "BLL\u0027s\\VendasBLL.cs",
+              "ToolTip": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\BLL\u0027s\\VendasBLL.cs",
+              "RelativeToolTip": "BLL\u0027s\\VendasBLL.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAAASwGUAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T23:58:04.208Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ItensVendasController.cs",
+              "DocumentMoniker": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\Controllers\\ItensVendasController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ItensVendasController.cs",
+              "ToolTip": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\Controllers\\ItensVendasController.cs",
+              "RelativeToolTip": "Controllers\\ItensVendasController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T23:20:41.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ItensVendasBLL.cs",
+              "DocumentMoniker": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\BLL\u0027s\\ItensVendasBLL.cs",
+              "RelativeDocumentMoniker": "BLL\u0027s\\ItensVendasBLL.cs",
+              "ToolTip": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\BLL\u0027s\\ItensVendasBLL.cs",
+              "RelativeToolTip": "BLL\u0027s\\ItensVendasBLL.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAHUAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T23:19:52.309Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ItensVendasDAL.cs",
+              "DocumentMoniker": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\DAL\u0027s\\ItensVendasDAL.cs",
+              "RelativeDocumentMoniker": "DAL\u0027s\\ItensVendasDAL.cs",
+              "ToolTip": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\DAL\u0027s\\ItensVendasDAL.cs",
+              "RelativeToolTip": "DAL\u0027s\\ItensVendasDAL.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAADIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-27T22:58:39.975Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+C:\Users\perre\OneDrive\Documentos\GitHub\csharp-java\g_vendas\bin\Debug\g_vendas.exe.config
+C:\Users\perre\OneDrive\Documentos\GitHub\csharp-java\g_vendas\bin\Debug\g_vendas.exe
+C:\Users\perre\OneDrive\Documentos\GitHub\csharp-java\g_vendas\bin\Debug\g_vendas.pdb
+C:\Users\perre\OneDrive\Documentos\GitHub\csharp-java\g_vendas\obj\Debug\g_vendas.csproj.AssemblyReference.cache
+C:\Users\perre\OneDrive\Documentos\GitHub\csharp-java\g_vendas\obj\Debug\g_vendas.Properties.Resources.resources
+C:\Users\perre\OneDrive\Documentos\GitHub\csharp-java\g_vendas\obj\Debug\g_vendas.csproj.GenerateResource.cache
+C:\Users\perre\OneDrive\Documentos\GitHub\csharp-java\g_vendas\obj\Debug\g_vendas.csproj.CoreCompileInputs.cache
+C:\Users\perre\OneDrive\Documentos\GitHub\csharp-java\g_vendas\obj\Debug\g_vendas.exe
+C:\Users\perre\OneDrive\Documentos\GitHub\csharp-java\g_vendas\obj\Debug\g_vendas.pdb
