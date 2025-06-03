@@ -1,4 +1,5 @@
-﻿using MySqlConnector;
+﻿using g_vendas.Logger;
+using MySqlConnector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,12 +24,26 @@ namespace Teste1.Data.Query
         public void BuscarEArmazenar()
         {
             string query;
+            List<MySqlParameter> parameters = new List<MySqlParameter>();
 
             // Decide automaticamente se aplica filtro ou não
             if (string.IsNullOrWhiteSpace(_condicao))
                 query = $"SELECT {_campos} FROM {_tabela}";
             else
                 query = $"SELECT {_campos} FROM {_tabela} WHERE {_condicao}";
+
+            if (!string.IsNullOrWhiteSpace(_condicao))
+            {
+                // Supondo que a condição venha no formato "campo = @parametro"
+                // Exemplo: "id = @id"
+                var parts = _condicao.Split('=');
+                if (parts.Length == 2)
+                {
+                    var paramName = parts[1].Trim();
+                    query += " WHERE " + parts[0].Trim() + " = " + paramName;
+                    parameters.Add(new MySqlParameter(paramName, parts[1].Trim()));
+                }
+            }
 
             try
             {
@@ -62,12 +77,13 @@ namespace Teste1.Data.Query
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Erro ao buscar: {ex.Message}");
+                loggerC_.Error($"{ex}");
             }
         }
 
         public void Inserir(string tabela, Dictionary<string, object> valores)
         {
+
             try
             {
                 var campos = string.Join(", ", valores.Keys);
@@ -89,8 +105,7 @@ namespace Teste1.Data.Query
             }
             catch (Exception e)
             {
-                Console.WriteLine($"errors: {e}");
-                throw;
+                loggerC_.Error($"{e}");
             }
         }
 
@@ -132,8 +147,7 @@ namespace Teste1.Data.Query
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Erro ao atualizar: {ex.Message}");
-                throw;
+                loggerC_.Error($"{ex}");
             }
         }
 
@@ -165,8 +179,7 @@ namespace Teste1.Data.Query
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Erro ao excluir: {ex.Message}");
-                throw;
+                loggerC_.Error($"{ex}");
             }
         }
 

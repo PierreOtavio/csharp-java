@@ -1,4 +1,5 @@
 ﻿using g_vendas.DAL_s;
+using g_vendas.Logger;
 using g_vendas.Models;
 using System;
 using System.Collections.Generic;
@@ -106,13 +107,10 @@ namespace g_vendas.BLL_s
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao atualizar item de venda.", ex);
+                loggerC_.Error("Erro ao atualizar item de venda.", ex);
             }
         }
 
-        /// <summary>
-        /// Remove um item de venda pelo ID.
-        /// </summary>
         public void RemoverItem(int idItem)
         {
             try
@@ -121,7 +119,7 @@ namespace g_vendas.BLL_s
             }
             catch (Exception ex)
             {
-                throw new Exception("Erro ao remover item de venda.", ex);
+                loggerC_.Error("Erro ao remover item de venda.", ex);
             }
         }
     }

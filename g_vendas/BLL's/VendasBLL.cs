@@ -1,4 +1,5 @@
 ﻿using g_vendas.DAL_s;
+using g_vendas.Logger;
 using g_vendas.Models;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace g_vendas.BLL_s
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Erro ao buscar vendas: {ex.Message}");
+                loggerC_.Error($"{ex}");
                 return new List<Venda>();
             }
         }
@@ -37,7 +38,7 @@ namespace g_vendas.BLL_s
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Erro ao cadastrar venda: {ex.Message}");
+                loggerC_.Error($"{ex}");
                 return false;
             }
         }
@@ -46,31 +47,31 @@ namespace g_vendas.BLL_s
         {
             if (venda == null)
             {
-                Console.WriteLine("Venda não pode ser nula");
+                loggerC_.Error($"Venda não pode ser nula");
                 return false;
             }
 
             if (venda.valor_total <= 0)
             {
-                Console.WriteLine("Valor total deve ser maior que zero");
+                loggerC_.Error("Valor total deve ser maior que zero");
                 return false;
             }
 
             if (venda.desconto < 0)
             {
-                Console.WriteLine("Desconto não pode ser negativo");
+                loggerC_.Error("Desconto não pode ser negativo");
                 return false;
             }
 
             if (venda.desconto > venda.valor_total)
             {
-                Console.WriteLine("Desconto não pode ser maior que o valor total");
+                loggerC_.Error("Desconto não pode ser maior que o valor total");
                 return false;
             }
 
             if (venda.data_venda > DateTime.Now)
             {
-                Console.WriteLine("Data da venda não pode ser no futuro");
+                loggerC_.Error("Data da venda não pode ser no futuro");
                 return false;
             }
 
@@ -84,7 +85,7 @@ namespace g_vendas.BLL_s
             if (venda.desconto > descontoMaximo)
             {
                 venda.desconto = descontoMaximo;
-                Console.WriteLine($"Desconto limitado a 50% do valor total: {descontoMaximo:C}");
+                loggerC_.Error($"Desconto limitado a 50% do valor total: {descontoMaximo:C}");
             }
 
             // Arredondar valores para 2 casas decimais
@@ -107,7 +108,7 @@ namespace g_vendas.BLL_s
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Erro ao buscar vendas por período: {ex.Message}");
+                loggerC_.Error($"{ex}");
                 return new List<Venda>();
             }
         }
@@ -121,7 +122,7 @@ namespace g_vendas.BLL_s
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Erro ao calcular total de vendas do dia: {ex.Message}");
+                loggerC_.Error($"{ex}");
                 return 0;
             }
         }
@@ -144,7 +145,7 @@ namespace g_vendas.BLL_s
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Erro ao exportar para Excel: {ex.Message}");
+                loggerC_.Error($"{ex}");
                 return false;
             }
         }
@@ -168,7 +169,7 @@ namespace g_vendas.BLL_s
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Erro ao obter estatísticas: {ex.Message}");
+                loggerC_.Error($"{ex}");
                 return new Dictionary<Venda.forma_pagamento, int>();
             }
         }
