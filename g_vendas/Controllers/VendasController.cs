@@ -8,166 +8,132 @@ namespace g_vendas.Controllers
 {
     internal class VendasController
     {
-        public class ResponseModel
-        {
-            public bool Sucesso { get; set; }
-            public string Mensagem { get; set; }
-            public object Dados { get; set; }
-
-            public ResponseModel(bool sucesso, string mensagem, object dados = null)
-            {
-                Sucesso = sucesso;
-                Mensagem = mensagem;
-                Dados = dados;
-            }
-        }
+        //private readonly VendasBLL _bll = new VendasBLL();
 
         // Listar todas as vendas
-        public ResponseModel ListarVendas()
+        public List<Venda> ListarVendas()
         {
             try
             {
-                var vendas = VendasBLL.ObterTodasVendas();
-                return new ResponseModel(true, "Vendas carregadas com sucesso", vendas);
+                return VendasBLL.ObterTodasVendas();
             }
             catch (Exception ex)
             {
-                return new ResponseModel(false, $"Erro ao carregar vendas: {ex.Message}");
+                throw new Exception($"Erro ao carregar vendas: {ex.Message}");
             }
         }
 
         // Cadastrar nova venda
-        public ResponseModel CadastrarVenda(DateTime dataVenda, decimal valorTotal, decimal desconto, Venda.forma_pagamento formaPagamento)
+        public void CadastrarVenda(DateTime dataVenda, decimal valorTotal, decimal desconto, Venda.forma_pagamento formaPagamento)
         {
             try
             {
                 var novaVenda = new Venda(dataVenda, valorTotal, desconto, formaPagamento);
-
                 bool sucesso = VendasBLL.CadastrarVenda(novaVenda);
-
-                if (sucesso)
-                    return new ResponseModel(true, "Venda cadastrada com sucesso!", novaVenda);
-                else
-                    return new ResponseModel(false, "Falha ao cadastrar venda. Verifique os dados informados.");
+                if (!sucesso)
+                    throw new Exception("Falha ao cadastrar venda. Verifique os dados informados.");
             }
             catch (Exception ex)
             {
-                return new ResponseModel(false, $"Erro ao cadastrar venda: {ex.Message}");
+                throw new Exception($"Erro ao cadastrar venda: {ex.Message}");
             }
         }
 
         // Cadastrar venda completa (sobrecarga)
-        public ResponseModel CadastrarVenda(Venda venda)
+        public void CadastrarVenda(Venda venda)
         {
             try
             {
                 bool sucesso = VendasBLL.CadastrarVenda(venda);
-
-                if (sucesso)
-                    return new ResponseModel(true, "Venda cadastrada com sucesso!", venda);
-                else
-                    return new ResponseModel(false, "Falha ao cadastrar venda. Verifique os dados informados.");
+                if (!sucesso)
+                    throw new Exception("Falha ao cadastrar venda. Verifique os dados informados.");
             }
             catch (Exception ex)
             {
-                return new ResponseModel(false, $"Erro ao cadastrar venda: {ex.Message}");
+                throw new Exception($"Erro ao cadastrar venda: {ex.Message}");
             }
         }
 
         // Buscar vendas por período
-        public ResponseModel BuscarVendasPorPeriodo(DateTime dataInicio, DateTime dataFim)
+        public List<Venda> BuscarVendasPorPeriodo(DateTime dataInicio, DateTime dataFim)
         {
             try
             {
-                var vendas = VendasBLL.ObterVendasPorPeriodo(dataInicio, dataFim);
-                string mensagem = vendas.Any() ? $"{vendas.Count} vendas encontradas" : "Nenhuma venda encontrada no período";
-
-                return new ResponseModel(true, mensagem, vendas);
+                return VendasBLL.ObterVendasPorPeriodo(dataInicio, dataFim);
             }
             catch (Exception ex)
             {
-                return new ResponseModel(false, $"Erro ao buscar vendas por período: {ex.Message}");
+                throw new Exception($"Erro ao buscar vendas por período: {ex.Message}");
             }
         }
 
         // Calcular total de vendas do dia
-        public ResponseModel CalcularTotalDia(DateTime data)
+        public decimal CalcularTotalDia(DateTime data)
         {
             try
             {
-                decimal total = VendasBLL.CalcularTotalVendasDia(data);
-                return new ResponseModel(true, $"Total do dia: {total:C}", total);
+                return VendasBLL.CalcularTotalVendasDia(data);
             }
             catch (Exception ex)
             {
-                return new ResponseModel(false, $"Erro ao calcular total do dia: {ex.Message}");
+                throw new Exception($"Erro ao calcular total do dia: {ex.Message}");
             }
         }
 
         // Exportar vendas para Excel
-        public ResponseModel ExportarVendas(List<Venda> vendas = null)
+        public void ExportarVendas(List<Venda> vendas = null)
         {
             try
             {
                 bool sucesso = VendasBLL.ExportarParaExcel(vendas);
-
-                if (sucesso)
-                    return new ResponseModel(true, "Relatório exportado com sucesso para a área de trabalho!");
-                else
-                    return new ResponseModel(false, "Falha ao exportar relatório.");
+                if (!sucesso)
+                    throw new Exception("Falha ao exportar relatório.");
             }
             catch (Exception ex)
             {
-                return new ResponseModel(false, $"Erro ao exportar relatório: {ex.Message}");
+                throw new Exception($"Erro ao exportar relatório: {ex.Message}");
             }
         }
 
         // Validar dados de venda antes do cadastro
-        public ResponseModel ValidarVenda(DateTime dataVenda, decimal valorTotal, decimal desconto)
+        public string ValidarVenda(DateTime dataVenda, decimal valorTotal, decimal desconto)
         {
             try
             {
                 var vendaTemp = new Venda(dataVenda, valorTotal, desconto, Venda.forma_pagamento.Dinheiro);
                 bool valida = VendasBLL.ValidarVenda(vendaTemp);
-
-                if (valida)
-                    return new ResponseModel(true, "Dados da venda são válidos");
-                else
-                    return new ResponseModel(false, "Dados da venda são inválidos");
+                return valida ? "Dados da venda são válidos" : "Dados da venda são inválidos";
             }
             catch (Exception ex)
             {
-                return new ResponseModel(false, $"Erro na validação: {ex.Message}");
+                throw new Exception($"Erro na validação: {ex.Message}");
             }
         }
 
         // Obter estatísticas de formas de pagamento
-        public ResponseModel ObterEstatisticasFormaPagamento()
+        public object ObterEstatisticasFormaPagamento()
         {
             try
             {
-                var estatisticas = VendasBLL.ObterEstatisticasFormaPagamento();
-                return new ResponseModel(true, "Estatísticas carregadas", estatisticas);
+                return VendasBLL.ObterEstatisticasFormaPagamento();
             }
             catch (Exception ex)
             {
-                return new ResponseModel(false, $"Erro ao obter estatísticas: {ex.Message}");
+                throw new Exception($"Erro ao obter estatísticas: {ex.Message}");
             }
         }
 
         // Calcular valor final da venda (com desconto)
-        public ResponseModel CalcularValorFinal(decimal valorTotal, decimal desconto)
+        public decimal CalcularValorFinal(decimal valorTotal, decimal desconto)
         {
             try
             {
                 var vendaTemp = new Venda { valor_total = valorTotal, desconto = desconto };
-                decimal valorFinal = VendasBLL.CalcularValorFinal(vendaTemp);
-
-                return new ResponseModel(true, $"Valor final: {valorFinal:C}", valorFinal);
+                return VendasBLL.CalcularValorFinal(vendaTemp);
             }
             catch (Exception ex)
             {
-                return new ResponseModel(false, $"Erro ao calcular valor final: {ex.Message}");
+                throw new Exception($"Erro ao calcular valor final: {ex.Message}");
             }
         }
 

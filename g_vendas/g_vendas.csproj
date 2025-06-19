@@ -35,6 +35,11 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Pizza-da-Grá.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
   <ItemGroup>
     <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
       <HintPath>packages\BouncyCastle.Cryptography.2.5.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
@@ -172,26 +177,43 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL%27s\ItensVendasBLL.cs" />
+    <Compile Include="BLL%27s\PizzaSaboresBLL.cs" />
+    <Compile Include="BLL%27s\ProdutosBLL.cs" />
+    <Compile Include="BLL%27s\SaboresPizzaBLL.cs" />
     <Compile Include="BLL%27s\VendasBLL.cs" />
     <Compile Include="Controllers\ItensVendasController.cs" />
+    <Compile Include="Controllers\PizzaSaboresController.cs" />
+    <Compile Include="Controllers\ProdutosController.cs" />
+    <Compile Include="Controllers\SaboresPizzaController.cs" />
     <Compile Include="Controllers\VendasController.cs" />
     <Compile Include="DAL%27s\ItensVendasDAL.cs" />
+    <Compile Include="DAL%27s\PizzaSaboresDAL.cs" />
+    <Compile Include="DAL%27s\ProdutosDAL.cs" />
+    <Compile Include="DAL%27s\SaboresPizzaDAL.cs" />
     <Compile Include="DAL%27s\VendasDAL.cs" />
-    <Compile Include="DBQuery\ConsultorUniversal.cs" />
-    <Compile Include="FormVendas.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="DAL%27s\DBQuery\ConsultorUniversal.cs" />
+    <Compile Include="ExportacaoExcel\ExcelExporter.cs" />
     <Compile Include="Logger\loggerC#.cs" />
     <Compile Include="Models\ItensVendas.cs" />
+    <Compile Include="Models\PizzaSabores.cs" />
+    <Compile Include="Models\Produtos.cs" />
+    <Compile Include="Models\SaboresPizza.cs" />
     <Compile Include="Models\Venda.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UI\FormVendas1.cs">
+    <Compile Include="UI\FormCadastroVenda1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\FormVendas1.Designer.cs">
-      <DependentUpon>FormVendas1.cs</DependentUpon>
+    <Compile Include="UI\FormDesconto.cs">
+      <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UI\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FormMainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Utils\FormUtils.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -211,11 +233,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="UI\FormCadastroVenda2.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Pizza-da-Grá.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

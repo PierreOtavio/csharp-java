@@ -1,4 +1,6 @@
-﻿using System;
+﻿using g_vendas.Logger;
+using g_vendas.UI;
+using System;
 using System.Windows.Forms;
 
 namespace g_vendas
@@ -9,11 +11,40 @@ namespace g_vendas
         /// Ponto de entrada principal para a aplicação.
         /// </summary>
         [STAThread]
-        static void Main()
+
+        static void startLogg(loggerC_ logger)
+        {
+            loggerC_.Inicializar();
+
+        }
+
+        static void Main(string[] args)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormVendas()); // Altere para o nome do seu formulário principal
+
+            loggerC_ logger = new loggerC_();
+            try
+            {
+                try
+                {
+                    if (logger == null)
+                    {
+                        loggerC_.Info("objeto recebido como nulo, verificar passagem");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    loggerC_.Error($"erro ao identificar objeto {ex}");
+                }
+                startLogg(logger);
+            }
+            catch (Exception e)
+            {
+                loggerC_.Error($"erro ao inicializar {e}");
+            }
+
+            Application.Run(new FormLogin());
         }
     }
 }

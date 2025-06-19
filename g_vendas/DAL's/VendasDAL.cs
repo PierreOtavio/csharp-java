@@ -1,8 +1,7 @@
-﻿using ClosedXML.Excel;
+﻿using g_vendas.ExportacaoExcel;
 using g_vendas.Models;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using Teste1.Data.Query;
 
 namespace g_vendas.DAL_s
@@ -48,33 +47,7 @@ namespace g_vendas.DAL_s
 
         public static void exportToExcel(List<Venda> listaVenda)
         {
-            string dkPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-
-            string archiveName = $"RelatórioVendas_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
-            string completePath = Path.Combine(dkPath, archiveName);
-
-            using (var workbook = new XLWorkbook())
-            {
-                var worksheet = workbook.Worksheets.Add("Vendas");
-
-                worksheet.Cell(1, 1).Value = "Forma Pagamento";
-                worksheet.Cell(1, 2).Value = "Data Venda";
-                worksheet.Cell(1, 3).Value = "Desconto Aplicado";
-                worksheet.Cell(1, 4).Value = "Valor Desconto";
-
-                int linha = 2;
-                foreach (var venda in listaVenda)
-                {
-                    //worksheet.Cell(linha, 1).Value = venda.;
-                    worksheet.Cell(linha, 2).Value = venda.data_venda.ToString("dd/MM/yyyy HH:mm:ss");
-                    worksheet.Cell(linha, 3).Value = venda.desconto;
-                    worksheet.Cell(linha, 4).Value = venda.valor_total;
-                    linha++;
-                }
-
-                workbook.SaveAs(completePath);
-            }
-            Console.WriteLine($"arquivo salvo na área de trabalho {archiveName}");
+            ExcelExporter.ExportToExcel(listaVenda, "RelatórioVendas");
         }
     }
 }
