@@ -45,7 +45,7 @@ namespace g_vendas.UI
             lblBemVindo.Text = "BEM VINDO AO SISTEMA GERENCIADOR DE\nVENDAS DA PIZZARIA DA GRÁ";
             lblBemVindo.Font = new Font("Segoe UI", 10, FontStyle.Italic);
             lblBemVindo.AutoSize = false;
-            lblBemVindo.TextAlign = ContentAlignment.TopLeft;
+            lblBemVindo.TextAlign = ContentAlignment.TopCenter;
             panelFundo.Controls.Add(lblBemVindo);
 
             // Painel de login

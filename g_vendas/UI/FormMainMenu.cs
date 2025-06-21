@@ -28,15 +28,19 @@ namespace g_vendas.UI
 
             // Painel central
             panelCentral = new Panel();
-            panelCentral.BackColor = Color.Transparent;
+            //panelCentral.BackColor = Color.Transparent;
+            panelCentral.BackColor = Color.FromArgb(236, 234, 234); // ou Color.White
+
             this.Controls.Add(panelCentral);
 
             // Botão 1: Cadastrar vendas
             btnCadastrar = CriarBotaoMenu("\u002B", "Cadastrar vendas");
+            btnCadastrar.Click += BtnCadastrar_Click;
             panelCentral.Controls.Add(btnCadastrar);
 
             // Botão 2: Relatório mensal
             btnRelatorio = CriarBotaoMenu("\u2B07", "Relatório mensal");
+            btnRelatorio.Click += BtnRelatorio_Click;
             panelCentral.Controls.Add(btnRelatorio);
 
             // Botão 3: Exportar como .xlsx
@@ -48,11 +52,25 @@ namespace g_vendas.UI
             AtualizarLayout();
         }
 
+        private void BtnCadastrar_Click(object sender, EventArgs e)
+        {
+            FormCadastroVenda1 cadVenda = new FormCadastroVenda1();
+            cadVenda.Show();
+            this.Hide();
+        }
+
+        private void BtnRelatorio_Click(object sender, EventArgs e)
+        {
+            FormRelatorioHome relatorio = new FormRelatorioHome();
+            relatorio.Show();
+            this.Hide();
+        }
+
         private Button CriarBotaoMenu(string icone, string texto)
         {
             Button btn = new Button();
-            btn.Font = new Font("Segoe UI", 18, FontStyle.Regular);
-            btn.BackColor = ColorTranslator.FromHtml("#D2CBCB");
+            btn.Font = new Font("Segoe UI", 24, FontStyle.Regular);
+            btn.BackColor = ColorTranslator.FromHtml("#C19898");
             btn.ForeColor = Color.Black;
             btn.FlatStyle = FlatStyle.Flat;
             btn.FlatAppearance.BorderSize = 0;
@@ -61,7 +79,7 @@ namespace g_vendas.UI
             btn.Size = new Size(450, 75);
             btn.Text = $"  {icone}   {texto}";
             btn.Cursor = Cursors.Hand;
-            btn.FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml("#E5E1E1");
+            btn.FlatAppearance.MouseOverBackColor = ColorTranslator.FromHtml("#E6D1D1");
             return btn;
         }
 
@@ -126,6 +144,5 @@ namespace g_vendas.UI
                 MessageBox.Show("Erro ao exportar: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
     }
 }

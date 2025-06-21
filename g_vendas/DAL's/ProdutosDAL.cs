@@ -27,9 +27,9 @@ namespace g_vendas.DAL_s
         {
             var valores = new Dictionary<string, object>
                 {
-                    {"nome", produtos.Nome },
+                    {"nome", produtos.Descricao },
                     {"preco", produtos.Preco },
-                    {"descricao", produtos.Descricao },
+                    {"descricao", produtos.Nome },
                     {"tipo", produtos.Tipo }
                 };
 

@@ -1,7 +1,8 @@
 ﻿namespace g_vendas.Models
 {
-    internal class SaboresPizza
+    public class SaboresPizza
     {
+        public int id { get; set; }
         public readonly string nome;
         public readonly string descricao;
 

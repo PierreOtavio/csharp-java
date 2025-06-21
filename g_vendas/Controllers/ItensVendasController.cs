@@ -2,10 +2,11 @@
 using g_vendas.Models;
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace g_vendas.Controllers
 {
-    internal class ItensVendasController
+    public class ItensVendasController
     {
         private readonly ItensVendasBLL _bll = new ItensVendasBLL();
 
@@ -41,17 +42,15 @@ namespace g_vendas.Controllers
         {
             try
             {
+                MessageBox.Show($"Inserindo item: Venda={item.Id_Venda}, Observação={item.Observacao}");
                 _bll.InserirItem(item);
-            }
-            catch (ArgumentException ex)
-            {
-                throw new ArgumentException(ex.Message);
             }
             catch (Exception ex)
             {
-                throw new Exception($"Erro ao cadastrar item: {ex.Message}");
+                MessageBox.Show($"Erro ao cadastrar item: {ex.Message}");
             }
         }
+
 
         // Atualizar item de venda
         public void AtualizarItem(ItensVendas item)

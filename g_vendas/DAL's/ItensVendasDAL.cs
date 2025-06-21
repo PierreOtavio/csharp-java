@@ -38,7 +38,7 @@ namespace g_vendas.DAL_s
 
             var consultor = new ConsultorUniversal<ItensVendas>
                 (
-                tabela: "vendas",
+                tabela: "itens_venda",
                 campos: "*",
                 armazenador: null
                 );

@@ -1,0 +1,78 @@
+2025-06-21 01:02:40.275 -03:00 [ERR] MySqlConnector.MySqlException (0x80004005): Cannot add or update a child row: a foreign key constraint fails (`db_vendas`.`itens_venda`, CONSTRAINT `itens_venda_ibfk_2` FOREIGN KEY (`id_produto`) REFERENCES `produtos` (`id_produto`))
+   em MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__117.MoveNext() na /_/src/MySqlConnector/Core/ServerSession.cs:linha 1064
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Threading.Tasks.ValueTask`1.get_Result()
+   em MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() na /_/src/MySqlConnector/Core/ResultSet.cs:linha 37
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) na /_/src/MySqlConnector/MySqlDataReader.cs:linha 131
+   em MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() na /_/src/MySqlConnector/MySqlDataReader.cs:linha 507
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   em MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() na /_/src/MySqlConnector/Core/CommandExecutor.cs:linha 56
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em MySqlConnector.MySqlCommand.<ExecuteNonQueryAsync>d__78.MoveNext() na /_/src/MySqlConnector/MySqlCommand.cs:linha 309
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em MySqlConnector.MySqlCommand.ExecuteNonQuery() na /_/src/MySqlConnector/MySqlCommand.cs:linha 108
+   em Teste1.Data.Query.ConsultorUniversal`1.Inserir(String tabela, Dictionary`2 valores) na C:\Users\perre\OneDrive\Documentos\GitHub\csharp-java\g_vendas\DAL's\DBQuery\ConsultorUniversal.cs:linha 102
+2025-06-21 01:02:43.609 -03:00 [ERR] MySqlConnector.MySqlException (0x80004005): Cannot add or update a child row: a foreign key constraint fails (`db_vendas`.`itens_venda`, CONSTRAINT `itens_venda_ibfk_2` FOREIGN KEY (`id_produto`) REFERENCES `produtos` (`id_produto`))
+   em MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__117.MoveNext() na /_/src/MySqlConnector/Core/ServerSession.cs:linha 1064
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Threading.Tasks.ValueTask`1.get_Result()
+   em MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() na /_/src/MySqlConnector/Core/ResultSet.cs:linha 37
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) na /_/src/MySqlConnector/MySqlDataReader.cs:linha 131
+   em MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() na /_/src/MySqlConnector/MySqlDataReader.cs:linha 507
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   em MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() na /_/src/MySqlConnector/Core/CommandExecutor.cs:linha 56
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em MySqlConnector.MySqlCommand.<ExecuteNonQueryAsync>d__78.MoveNext() na /_/src/MySqlConnector/MySqlCommand.cs:linha 309
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em MySqlConnector.MySqlCommand.ExecuteNonQuery() na /_/src/MySqlConnector/MySqlCommand.cs:linha 108
+   em Teste1.Data.Query.ConsultorUniversal`1.Inserir(String tabela, Dictionary`2 valores) na C:\Users\perre\OneDrive\Documentos\GitHub\csharp-java\g_vendas\DAL's\DBQuery\ConsultorUniversal.cs:linha 102
+2025-06-21 01:02:43.609 -03:00 [INF] Inserindo produto: Média, Tipo: "Pizza"
+2025-06-21 01:02:43.642 -03:00 [INF] Produto inserido com sucesso: Média
+2025-06-21 01:02:43.642 -03:00 [INF] Inserindo produto: Coca Cola, Tipo: "Refrigerante"
+2025-06-21 01:02:43.646 -03:00 [INF] Produto inserido com sucesso: Coca Cola
+2025-06-21 01:26:52.434 -03:00 [ERR] MySqlConnector.MySqlException (0x80004005): Cannot add or update a child row: a foreign key constraint fails (`db_vendas`.`itens_venda`, CONSTRAINT `itens_venda_ibfk_2` FOREIGN KEY (`id_produto`) REFERENCES `produtos` (`id_produto`))
+   em MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__117.MoveNext() na /_/src/MySqlConnector/Core/ServerSession.cs:linha 1064
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Threading.Tasks.ValueTask`1.get_Result()
+   em MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() na /_/src/MySqlConnector/Core/ResultSet.cs:linha 37
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) na /_/src/MySqlConnector/MySqlDataReader.cs:linha 131
+   em MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() na /_/src/MySqlConnector/MySqlDataReader.cs:linha 507
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   em MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() na /_/src/MySqlConnector/Core/CommandExecutor.cs:linha 56
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em MySqlConnector.MySqlCommand.<ExecuteNonQueryAsync>d__78.MoveNext() na /_/src/MySqlConnector/MySqlCommand.cs:linha 309
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em MySqlConnector.MySqlCommand.ExecuteNonQuery() na /_/src/MySqlConnector/MySqlCommand.cs:linha 108
+   em Teste1.Data.Query.ConsultorUniversal`1.Inserir(String tabela, Dictionary`2 valores) na C:\Users\perre\OneDrive\Documentos\GitHub\csharp-java\g_vendas\DAL's\DBQuery\ConsultorUniversal.cs:linha 100
+2025-06-21 01:26:52.497 -03:00 [INF] Inserindo produto: Grande, Tipo: "Pizza"
+2025-06-21 01:26:52.513 -03:00 [INF] Produto inserido com sucesso: Grande

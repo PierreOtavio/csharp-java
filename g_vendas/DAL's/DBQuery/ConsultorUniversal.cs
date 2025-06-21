@@ -81,14 +81,13 @@ namespace Teste1.Data.Query
             }
         }
 
-        public void Inserir(string tabela, Dictionary<string, object> valores)
+        public long Inserir(string tabela, Dictionary<string, object> valores)
         {
-
             try
             {
                 var campos = string.Join(", ", valores.Keys);
                 var parametros = string.Join(", ", valores.Keys.Select(k => "@" + k));
-                string query = $"INSERT INTO {tabela} ({campos}) VALUES ({parametros})";
+                string query = $"INSERT INTO {tabela} ({campos}) VALUES ({parametros});";
 
                 using (var conexao = new MySqlConnection(_connectionString))
                 {
@@ -96,18 +95,20 @@ namespace Teste1.Data.Query
                     using (var cmd = new MySqlCommand(query, conexao))
                     {
                         foreach (var kvp in valores)
-                        {
                             cmd.Parameters.AddWithValue("@" + kvp.Key, kvp.Value ?? DBNull.Value);
-                        }
+
                         cmd.ExecuteNonQuery();
+                        return cmd.LastInsertedId; // Retorna o ID gerado
                     }
                 }
             }
             catch (Exception e)
             {
                 loggerC_.Error($"{e}");
+                return 0; // Retorna 0 em caso de erro
             }
         }
+
 
         public void Update(string tabela, Dictionary<string, object> valores, Dictionary<string, object> condicoes)
         {

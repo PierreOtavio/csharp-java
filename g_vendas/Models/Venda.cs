@@ -2,9 +2,10 @@
 
 namespace g_vendas.Models
 {
-    internal class Venda
+    public class Venda
     {
         public int id_venda { get; set; } // Adicionar ID
+        public int id_pizzaSabores;
         public DateTime data_venda { get; set; }
         public decimal valor_total { get; set; }
         public decimal desconto { get; set; }
@@ -12,10 +13,10 @@ namespace g_vendas.Models
 
         public enum forma_pagamento
         {
-            Dinheiro = 1,
-            Cartao = 2,
-            PIX = 3,
-            Outro = 4
+            Dinheiro,
+            Cartao,
+            PIX,
+            Outro
         }
 
         // Construtor com parâmetros
@@ -24,7 +25,7 @@ namespace g_vendas.Models
             this.data_venda = data_venda;
             this.valor_total = valor_total;
             this.desconto = desconto;
-            this.FormaPagamento = formaPagamento;
+            FormaPagamento = formaPagamento;
         }
 
         // Construtor padrão
@@ -37,6 +38,6 @@ namespace g_vendas.Models
         }
 
         // Propriedade calculada para valor final
-        public decimal ValorFinal => valor_total - desconto;
+        public decimal ValorFinal => valor_total - (valor_total * desconto);
     }
 }

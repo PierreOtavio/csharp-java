@@ -25,25 +25,26 @@ namespace g_vendas.DAL_s
             return listaVenda;
         }
 
-        public static void insertVenda(Venda venda)
+        public static int insertVenda(Venda venda)
         {
             var valores = new Dictionary<string, object>
-            {
-                {"data_venda", venda.data_venda},
-                {"desconto", venda.desconto},
-                {"valor_total", venda.valor_total}
-                //{"forma_pagamento", venda.fo}
-            };
+    {
+        {"data_venda", venda.data_venda},
+        {"desconto", venda.desconto},
+        {"valor_total", venda.valor_total},
+        {"forma_pagamento", venda.FormaPagamento}
+    };
 
-            var consultor = new ConsultorUniversal<Venda>
-                (
+            var consultor = new ConsultorUniversal<Venda>(
                 tabela: "vendas",
                 campos: "*",
                 armazenador: null
-                );
+            );
 
-            consultor.Inserir("vendas", valores);
+            long idGerado = consultor.Inserir("vendas", valores);
+            return (int)idGerado;
         }
+
 
         public static void exportToExcel(List<Venda> listaVenda)
         {

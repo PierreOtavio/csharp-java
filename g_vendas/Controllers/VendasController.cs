@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace g_vendas.Controllers
 {
-    internal class VendasController
+    public class VendasController
     {
         //private readonly VendasBLL _bll = new VendasBLL();
 
@@ -23,15 +23,17 @@ namespace g_vendas.Controllers
             }
         }
 
-        // Cadastrar nova venda
-        public void CadastrarVenda(DateTime dataVenda, decimal valorTotal, decimal desconto, Venda.forma_pagamento formaPagamento)
+        // Cadastrar venda completa
+        // No VendasController
+        public static int CadastrarVendaCompleta(Venda venda)
         {
             try
             {
-                var novaVenda = new Venda(dataVenda, valorTotal, desconto, formaPagamento);
-                bool sucesso = VendasBLL.CadastrarVenda(novaVenda);
-                if (!sucesso)
+                // Supondo que VendasBLL.CadastrarVenda retorna o ID gerado
+                int idVenda = VendasBLL.CadastrarVenda(venda);
+                if (idVenda <= 0)
                     throw new Exception("Falha ao cadastrar venda. Verifique os dados informados.");
+                return idVenda;
             }
             catch (Exception ex)
             {
@@ -39,20 +41,6 @@ namespace g_vendas.Controllers
             }
         }
 
-        // Cadastrar venda completa (sobrecarga)
-        public void CadastrarVenda(Venda venda)
-        {
-            try
-            {
-                bool sucesso = VendasBLL.CadastrarVenda(venda);
-                if (!sucesso)
-                    throw new Exception("Falha ao cadastrar venda. Verifique os dados informados.");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Erro ao cadastrar venda: {ex.Message}");
-            }
-        }
 
         // Buscar vendas por período
         public List<Venda> BuscarVendasPorPeriodo(DateTime dataInicio, DateTime dataFim)
@@ -146,6 +134,13 @@ namespace g_vendas.Controllers
         public Venda.forma_pagamento ConverterFormaPagamento(string formaPagamento)
         {
             return (Venda.forma_pagamento)Enum.Parse(typeof(Venda.forma_pagamento), formaPagamento);
+        }
+
+        public Venda BuscarVendaPorId(int idVenda)
+        {
+            // Supondo que você já tenha um método para listar todas as vendas:
+            List<Venda> vendas = ListarVendas();
+            return vendas.FirstOrDefault(v => v.id_venda == idVenda);
         }
     }
 }

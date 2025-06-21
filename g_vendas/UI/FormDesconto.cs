@@ -18,8 +18,8 @@ namespace g_vendas.UI
             this.Size = new Size(400, 200);
             this.StartPosition = FormStartPosition.CenterParent;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            //this.MaximizeBox = true;
+            this.MinimizeBox = true;
             this.BackColor = Color.FromArgb(245, 225, 225);
 
             // Label
@@ -32,7 +32,7 @@ namespace g_vendas.UI
             // TextBox
             txtDesconto = new TextBox();
             txtDesconto.Font = new Font("Segoe UI", 16, FontStyle.Regular);
-            txtDesconto.Text = "10";
+            //txtDesconto.Text = "10";
             this.Controls.Add(txtDesconto);
 
             // Botão Cancelar
@@ -53,6 +53,19 @@ namespace g_vendas.UI
             btnConfirmar.BackColor = Color.FromArgb(40, 180, 40);
             btnConfirmar.ForeColor = Color.White;
             btnConfirmar.FlatStyle = FlatStyle.Flat;
+            btnConfirmar.Click += (s, e) =>
+            {
+                if (decimal.TryParse(txtDesconto.Text, out decimal valor) && valor >= 0)
+                {
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Digite um valor de desconto válido.", "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            };
+
             btnConfirmar.FlatAppearance.BorderSize = 0;
             btnConfirmar.DialogResult = DialogResult.OK;
             this.Controls.Add(btnConfirmar);
@@ -66,27 +79,33 @@ namespace g_vendas.UI
 
         private void AtualizarLayout()
         {
-            // Margem lateral fixa (pode ser relativa ao tamanho do form)
-            int margem = (int)(this.ClientSize.Width * 0.08f);
+            // Margens e tamanhos
+            int margemLateral = (int)(this.ClientSize.Width * 0.10f);
+            int margemTopo = (int)(this.ClientSize.Height * 0.10f);
 
             // Label
             Label lbl = (Label)this.Controls[0];
-            lbl.Location = new Point(margem, margem);
+            lbl.Location = new Point(margemLateral, margemTopo);
 
             // TextBox
-            txtDesconto.Size = new Size(this.ClientSize.Width - margem * 2, 36);
-            txtDesconto.Location = new Point(margem, lbl.Bottom + 10);
+            int larguraTextBox = this.ClientSize.Width - 2 * margemLateral;
+            txtDesconto.Size = new Size(larguraTextBox, 36);
+            txtDesconto.Location = new Point(margemLateral, lbl.Bottom + 16);
 
             // Botões
-            int larguraBotao = (int)((this.ClientSize.Width - margem * 3) / 2);
-            int alturaBotao = 40;
-            int yBotao = this.ClientSize.Height - alturaBotao - margem;
+            int espacamentoBotoes = 10;
+            int larguraBotao = (larguraTextBox - espacamentoBotoes) / 2;
+            int alturaBotao = 44;
+
+            // Posicione os botões logo abaixo do TextBox, com espaçamento vertical generoso
+            int yBotao = txtDesconto.Bottom + 22;
 
             btnCancelar.Size = new Size(larguraBotao, alturaBotao);
-            btnCancelar.Location = new Point(margem, yBotao);
+            btnCancelar.Location = new Point(margemLateral, yBotao);
 
             btnConfirmar.Size = new Size(larguraBotao, alturaBotao);
-            btnConfirmar.Location = new Point(btnCancelar.Right + margem, yBotao);
+            btnConfirmar.Location = new Point(btnCancelar.Right + espacamentoBotoes, yBotao);
         }
+
     }
 }

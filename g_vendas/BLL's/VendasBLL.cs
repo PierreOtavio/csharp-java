@@ -22,24 +22,24 @@ namespace g_vendas.BLL_s
             }
         }
 
-        public static bool CadastrarVenda(Venda venda)
+        public static int CadastrarVenda(Venda venda)
         {
             try
             {
                 // Validações de regras de negócio
                 if (!ValidarVenda(venda))
-                    return false;
+                    throw new Exception("Venda inválida. Verifique os dados informados.");
 
                 // Aplicar regras de negócio específicas
                 AplicarRegrasPadrao(venda);
 
-                VendasDAL.insertVenda(venda);
-                return true;
+                // Salva a venda e retorna o ID gerado
+                return VendasDAL.insertVenda(venda);
             }
             catch (Exception ex)
             {
                 loggerC_.Error($"{ex}");
-                return false;
+                throw; // Relança a exceção para ser tratada no controller
             }
         }
 
@@ -96,7 +96,7 @@ namespace g_vendas.BLL_s
         public static decimal CalcularValorFinal(Venda venda)
         {
             if (venda == null) return 0;
-            return venda.valor_total - venda.desconto;
+            return venda.ValorFinal;
         }
 
         public static List<Venda> ObterVendasPorPeriodo(DateTime dataInicio, DateTime dataFim)
@@ -173,5 +173,7 @@ namespace g_vendas.BLL_s
                 return new Dictionary<Venda.forma_pagamento, int>();
             }
         }
+
+
     }
 }

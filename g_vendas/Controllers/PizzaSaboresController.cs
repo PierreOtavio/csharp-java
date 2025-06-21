@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace g_vendas.Controllers
 {
-    internal class PizzaSaboresController
+    public class PizzaSaboresController
     {
         /// <summary>
         /// Retorna todos os sabores de pizza cadastrados.

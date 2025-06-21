@@ -1,166 +1,284 @@
-﻿using System;
+﻿using g_vendas.Controllers;
+using g_vendas.Models;
+using g_vendas.Models.Contextualizator;
+using System;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace g_vendas.UI
 {
     public class FormCadastroVenda2 : Form
     {
-        private Panel panelFundo, panelBranco;
+        private Panel panelFundo, panelBranco, linhaVertical;
         private Label lblTitulo;
-        private Panel linhaVertical;
         private Button btnCancelar, btnProximo;
-        private ListBox listaRefrigerante, listaQuantidade, listaPagamento, listaDesconto;
+        private Button btnRefrigerante, btnQuantidade, btnDesconto;
+        private ListBox lstRefrigerante, lstQuantidade, lstDesconto;
+        private Color corFundo = Color.FromArgb(185, 154, 134);
+        private Color corPainel = Color.White;
+        private Color corBotao = Color.FromArgb(220, 200, 200);
+        private Color corBotaoHover = Color.FromArgb(230, 210, 210);
+        private Color corBorda = Color.FromArgb(150, 120, 120);
+        private Color corTexto = Color.Black;
 
-        public FormCadastroVenda2()
+        private readonly string[] opcoesRefrigerante = { "Nenhum", "Coca Cola", "Fanta Laranja", "Guaraná Antártica" };
+        private readonly string[] opcoesQuantidade = { "350mL", "1L", "1,5L", "2L" };
+        private readonly string[] opcoesDesconto = { "Sim", "Não" };
+
+        private ContextoCadastroVenda contexto;
+
+        public FormCadastroVenda2(ContextoCadastroVenda contextoRecebido)
         {
             //Definir Ícone:
             FormUtils.SetIcon(this, "Pizza-Da-Grá.ico");
+            this.contexto = contextoRecebido;
 
-            // Configurações do formulário principal
             this.Text = "Cadastrar venda";
             this.Size = new Size(900, 650);
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.FormBorderStyle = FormBorderStyle.Sizable;
-            this.MaximizeBox = true;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.BackColor = Color.FromArgb(236, 234, 234);
 
             // Painel de fundo (rosado)
-            panelFundo = new Panel();
-            panelFundo.BackColor = Color.FromArgb(185, 154, 134, 134);
-            panelFundo.BorderStyle = BorderStyle.FixedSingle;
+            panelFundo = new Panel
+            {
+                BackColor = corFundo,
+                Location = new Point(0, 0),
+                Size = this.ClientSize
+            };
             this.Controls.Add(panelFundo);
 
             // Painel branco central
-            panelBranco = new Panel();
-            panelBranco.BackColor = Color.White;
-            panelBranco.BorderStyle = BorderStyle.FixedSingle;
+            panelBranco = new Panel
+            {
+                BackColor = Color.White,
+                BorderStyle = BorderStyle.None,
+                Location = new Point(30, 40),
+                Size = new Size(800, 460)
+            };
             panelFundo.Controls.Add(panelBranco);
 
-            // Label título
-            lblTitulo = new Label();
-            lblTitulo.Text = "Cadastrar venda:";
-            lblTitulo.Font = new Font("Segoe UI", 22, FontStyle.Regular);
-            lblTitulo.ForeColor = Color.White;
-            lblTitulo.BackColor = Color.Transparent;
-            lblTitulo.AutoSize = true;
+            // Título
+            lblTitulo = new Label
+            {
+                Text = "Cadastrar venda:",
+                Font = new Font("Segoe UI", 22, FontStyle.Bold),
+                ForeColor = Color.Black,
+                BackColor = corFundo,
+                AutoSize = true,
+                Anchor = AnchorStyles.Top | AnchorStyles.Left,
+                Location = new Point(10, 5)
+            };
             panelFundo.Controls.Add(lblTitulo);
 
-            // Linha divisória central
-            linhaVertical = new Panel();
-            linhaVertical.BackColor = Color.FromArgb(185, 154, 134, 134);
+            // Linha divisória vertical
+            linhaVertical = new Panel
+            {
+                BackColor = corFundo,
+                Size = new Size(2, 340),
+                Location = new Point(panelBranco.Width / 2 - 1, 70)
+            };
             panelBranco.Controls.Add(linhaVertical);
 
-            // ----------- COLUNA ESQUERDA -----------
-            // Refrigerante
-            listaRefrigerante = AdicionarGrupoLista(panelBranco, "Refrigerante:", new string[] { "Nenhum", "Coca-Cola", "Fanta Laranja", "Guaraná Antártica" }, 0, 0, 0, 0);
-            // Quantidade
-            listaQuantidade = AdicionarGrupoLista(panelBranco, "Quantidade:", new string[] { "1,5L", "2L" }, 0, 0, 0, 0);
+            // --- Coluna Esquerda ---
+            int yBase = 70;
 
-            // ----------- COLUNA DIREITA -----------
-            // Pago com
-            listaPagamento = AdicionarGrupoLista(panelBranco, "Pago com:", new string[] { "Cartão", "PIX", "Dinheiro" }, 0, 0, 0, 0);
-            // Desconto
-            listaDesconto = AdicionarGrupoLista(panelBranco, "Desconto:", new string[] { "Sim", "Não" }, 0, 0, 0, 0);
+            // Refrigerante (dropdown)
+            btnRefrigerante = CriarBotaoDropdown("Refrigerante:");
+            panelBranco.Controls.Add(btnRefrigerante);
 
-            listaDesconto.SelectedIndexChanged += (s, e) =>
+            lstRefrigerante = CriarListBox(opcoesRefrigerante);
+            panelBranco.Controls.Add(lstRefrigerante);
+
+            btnRefrigerante.Click += (s, e) => ExibirDropdownSimples(lstRefrigerante, btnRefrigerante);
+            lstRefrigerante.SelectedIndexChanged += (s, e) =>
             {
-                if (listaDesconto.SelectedItem != null && listaDesconto.SelectedItem.ToString().ToLower() == "sim")
+                if (lstRefrigerante.SelectedItem != null)
                 {
-                    using (FormDesconto modal = new FormDesconto())
-                    {
-                        modal.ShowDialog(this);
-                    }
-                    // Sempre retorna para a página inicial, independente do botão
-                    FormMainMenu paginaInicial = new FormMainMenu();
-                    paginaInicial.Show();
-                    this.Close();
+                    btnRefrigerante.Text = "Refrigerante: " + lstRefrigerante.SelectedItem.ToString();
+                    lstRefrigerante.Visible = false;
                 }
             };
 
-            // ----------- BOTÕES -----------
-            btnCancelar = new Button();
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.Font = new Font("Segoe UI", 14, FontStyle.Regular);
-            btnCancelar.BackColor = Color.FromArgb(220, 40, 40);
-            btnCancelar.ForeColor = Color.White;
-            btnCancelar.FlatStyle = FlatStyle.Flat;
-            btnCancelar.FlatAppearance.BorderSize = 0;
-            btnCancelar.Cursor = Cursors.Hand;
-            btnCancelar.Click += (s, e) => this.Close();
+            // Quantidade (dropdown)
+            btnQuantidade = CriarBotaoDropdown("Quantidade:");
+            panelBranco.Controls.Add(btnQuantidade);
+
+            lstQuantidade = CriarListBox(opcoesQuantidade);
+            panelBranco.Controls.Add(lstQuantidade);
+
+            btnQuantidade.Click += (s, e) => ExibirDropdownSimples(lstQuantidade, btnQuantidade);
+            lstQuantidade.SelectedIndexChanged += (s, e) =>
+            {
+                if (lstQuantidade.SelectedItem != null)
+                {
+                    btnQuantidade.Text = "Quantidade: " + lstQuantidade.SelectedItem.ToString();
+                    lstQuantidade.Visible = false;
+                }
+            };
+
+            // --- Coluna Direita ---
+            int xDir = panelBranco.Width / 2 + 20, yDir = yBase;
+
+            // Desconto (dropdown)
+            btnDesconto = CriarBotaoDropdown("Desconto:");
+            panelBranco.Controls.Add(btnDesconto);
+
+            lstDesconto = CriarListBox(opcoesDesconto);
+            panelBranco.Controls.Add(lstDesconto);
+
+            btnDesconto.Click += (s, e) => ExibirDropdownSimples(lstDesconto, btnDesconto);
+            lstDesconto.SelectedIndexChanged += (s, e) =>
+            {
+                if (lstDesconto.SelectedItem != null)
+                {
+                    btnDesconto.Text = "Desconto: " + lstDesconto.SelectedItem.ToString();
+                    lstDesconto.Visible = false;
+                }
+            };
+
+            // --- Botões ---
+            btnCancelar = new Button
+            {
+                Text = "Cancelar",
+                Font = new Font("Segoe UI", 16, FontStyle.Regular),
+                BackColor = Color.FromArgb(220, 40, 40),
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat,
+                FlatAppearance = { BorderSize = 0 },
+                Cursor = Cursors.Hand,
+                Size = new Size(180, 50),
+                Location = new Point(panelBranco.Width / 2 - 200, panelBranco.Height - 70)
+            };
+            btnCancelar.Click += (s, e) =>
+            {
+                FormMainMenu form = new FormMainMenu();
+                form.Show();
+                this.Hide();
+            };
             panelBranco.Controls.Add(btnCancelar);
 
-            btnProximo = new Button();
-            btnProximo.Text = "Próximo";
-            btnProximo.Font = new Font("Segoe UI", 14, FontStyle.Regular);
-            btnProximo.BackColor = Color.FromArgb(40, 180, 40);
-            btnProximo.ForeColor = Color.White;
-            btnProximo.FlatStyle = FlatStyle.Flat;
-            btnProximo.FlatAppearance.BorderSize = 0;
-            btnProximo.Cursor = Cursors.Hand;
-            // btnProximo.Click += (s, e) => { /* ação do próximo */ };
+            btnProximo = new Button
+            {
+                Text = "Próximo",
+                Font = new Font("Segoe UI", 16, FontStyle.Regular),
+                BackColor = Color.FromArgb(40, 180, 40),
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat,
+                FlatAppearance = { BorderSize = 0 },
+                Cursor = Cursors.Hand,
+                Size = new Size(180, 50),
+                Location = new Point(panelBranco.Width / 2 + 20, panelBranco.Height - 70)
+            };
+            btnProximo.Click += BtnProximo_Click;
             panelBranco.Controls.Add(btnProximo);
 
-            // Associa o evento de redimensionamento
-            this.Resize += FormCadastroVenda2_Resize;
-            // Posiciona os controles inicialmente
+            // Evento de redimensionamento
+            this.Resize += FormCadastroVenda_Resize;
             AtualizarLayout();
         }
 
-        private void FormCadastroVenda2_Resize(object sender, EventArgs e)
+        private Button CriarBotaoDropdown(string texto)
+        {
+            var btn = new Button
+            {
+                Text = texto,
+                Font = new Font("Segoe UI", 16, FontStyle.Regular),
+                BackColor = corBotao,
+                ForeColor = corTexto,
+                FlatStyle = FlatStyle.Flat,
+                FlatAppearance = { BorderColor = corBorda, BorderSize = 1 },
+                Height = 38,
+                Cursor = Cursors.Hand,
+                TextAlign = ContentAlignment.MiddleLeft,
+                Padding = new Padding(10, 0, 30, 0)
+            };
+            btn.Paint += (s, e) =>
+            {
+                var b = (Button)s;
+                string arrow = "▲";
+                var size = e.Graphics.MeasureString(arrow, b.Font);
+                e.Graphics.DrawString(arrow, b.Font, Brushes.Black,
+                    b.Width - size.Width - 15, (b.Height - size.Height) / 2);
+            };
+            btn.MouseEnter += (s, e) => { btn.BackColor = corBotaoHover; };
+            btn.MouseLeave += (s, e) => { btn.BackColor = corBotao; };
+            return btn;
+        }
+
+        private ListBox CriarListBox(string[] itens)
+        {
+            var lst = new ListBox
+            {
+                Font = new Font("Segoe UI", 15, FontStyle.Regular),
+                BackColor = Color.FromArgb(240, 230, 230),
+                BorderStyle = BorderStyle.FixedSingle,
+                Visible = false,
+                Height = 100
+            };
+            lst.Items.AddRange(itens);
+            return lst;
+        }
+
+        // Exibe o dropdown (seleção única)
+        private void ExibirDropdownSimples(ListBox lst, Button btn)
+        {
+            Point p = btn.PointToScreen(new Point(0, btn.Height));
+            lst.Location = panelBranco.PointToClient(p);
+            lst.BringToFront();
+            lst.Width = btn.Width;
+            lst.Visible = !lst.Visible;
+        }
+
+        private void FormCadastroVenda_Resize(object sender, EventArgs e)
         {
             AtualizarLayout();
         }
 
         private void AtualizarLayout()
         {
-            // Margens relativas
-            int margem = (int)(this.ClientSize.Width * 0.05f); // 5% da largura da janela
-            int alturaPanelFundo = (int)(this.ClientSize.Height * 0.8f); // 80% da altura da janela
-            int larguraPanelFundo = (int)(this.ClientSize.Width * 0.9f); // 90% da largura da janela
+            int margem = (int)(this.ClientSize.Width * 0.05f);
+            int alturaPanelFundo = (int)(this.ClientSize.Height * 0.8f);
+            int larguraPanelFundo = (int)(this.ClientSize.Width * 0.9f);
 
-            // Painel de fundo
             panelFundo.Location = new Point(margem, (this.ClientSize.Height - alturaPanelFundo) / 2);
             panelFundo.Size = new Size(larguraPanelFundo, alturaPanelFundo);
 
-            // Painel branco central
-            int margemInterna = (int)(panelFundo.Height * 0.1f); // 10% da altura do painel de fundo
-            int larguraPanelBranco = (int)(panelFundo.Width * 0.9f);
-            int alturaPanelBranco = (int)(panelFundo.Height * 0.8f);
+            int margemInterna = (int)(panelFundo.Height * 0.08f);
+            int larguraPanelBranco = (int)(panelFundo.Width * 0.92f);
+            int alturaPanelBranco = (int)(panelFundo.Height * 0.80f);
+
             panelBranco.Location = new Point((panelFundo.Width - larguraPanelBranco) / 2, margemInterna);
             panelBranco.Size = new Size(larguraPanelBranco, alturaPanelBranco);
 
-            // Label título
-            lblTitulo.Location = new Point(margemInterna, margemInterna / 2);
+            linhaVertical.Location = new Point(panelBranco.Width / 2 - 1, (int)(panelBranco.Height * 0.08f));
+            linhaVertical.Size = new Size(2, (int)(panelBranco.Height * 0.74f));
 
-            // Linha divisória vertical
-            linhaVertical.Location = new Point(panelBranco.Width / 2 - 1, (int)(panelBranco.Height * 0.1f));
-            linhaVertical.Size = new Size(2, (int)(panelBranco.Height * 0.7f));
-
-            // ----------- COLUNA ESQUERDA -----------
             int xEsquerda = (int)(panelBranco.Width * 0.05f);
-            int yInicial = (int)(panelBranco.Height * 0.1f);
-            int grupoLargura = (int)(panelBranco.Width * 0.4f);
-            int grupoAltura = (int)(panelBranco.Height * 0.3f);
-            int grupoAlturaPequena = (int)(panelBranco.Height * 0.2f);
-
-            // Refrigerante
-            ReposicionarGrupo(listaRefrigerante, "Refrigerante:", xEsquerda, yInicial, grupoLargura, grupoAltura);
-
-            // Quantidade
-            ReposicionarGrupo(listaQuantidade, "Quantidade:", xEsquerda, yInicial + grupoAltura + 20, grupoLargura, grupoAlturaPequena);
-
-            // ----------- COLUNA DIREITA -----------
             int xDireita = panelBranco.Width / 2 + (int)(panelBranco.Width * 0.05f);
+            int yInicial = (int)(panelBranco.Height * 0.10f);
 
-            // Pago com
-            ReposicionarGrupo(listaPagamento, "Pago com:", xDireita, yInicial, grupoLargura, grupoAltura);
+            // --- Coluna Esquerda ---
+            btnRefrigerante.Location = new Point(xEsquerda, yInicial);
+            btnRefrigerante.Size = new Size((int)(panelBranco.Width * 0.4f), 38);
+            lstRefrigerante.Location = new Point(xEsquerda, yInicial + btnRefrigerante.Height);
+            lstRefrigerante.Size = new Size(btnRefrigerante.Width, 100);
 
-            // Desconto
-            ReposicionarGrupo(listaDesconto, "Desconto:", xDireita, yInicial + grupoAltura + 20, grupoLargura, grupoAlturaPequena);
+            btnQuantidade.Location = new Point(xEsquerda, yInicial + 120);
+            btnQuantidade.Size = new Size((int)(panelBranco.Width * 0.4f), 38);
+            lstQuantidade.Location = new Point(xEsquerda, yInicial + 120 + btnQuantidade.Height);
+            lstQuantidade.Size = new Size(btnQuantidade.Width, 100);
 
-            // ----------- BOTÕES -----------
-            int larguraBotao = (int)(panelBranco.Width * 0.2f);
+            // --- Coluna Direita ---
+            btnDesconto.Location = new Point(xDireita, yInicial);
+            btnDesconto.Size = new Size((int)(panelBranco.Width * 0.4f), 38);
+            lstDesconto.Location = new Point(xDireita, yInicial + btnDesconto.Height);
+            lstDesconto.Size = new Size(btnDesconto.Width, 100);
+
+            // Botões
+            int larguraBotao = (int)(panelBranco.Width * 0.22f);
             int alturaBotao = 50;
             int yBotao = panelBranco.Height - alturaBotao - margemInterna / 2;
 
@@ -177,61 +295,87 @@ namespace g_vendas.UI
             );
         }
 
-        private ListBox AdicionarGrupoLista(Panel panel, string titulo, string[] opcoes, int x, int y, int largura, int altura)
+        private void BtnProximo_Click(object sender, EventArgs e)
         {
-            Panel grupo = new Panel();
-            grupo.Location = new Point(x, y);
-            grupo.Size = new Size(largura, altura);
-            grupo.BackColor = Color.Transparent;
-            panel.Controls.Add(grupo);
+            try
+            {
+                // 1. Refrigerante
+                string refri = lstRefrigerante.SelectedItem?.ToString() ?? "Nenhum";
+                string litragem = lstQuantidade.SelectedItem?.ToString() ?? "350mL";
+                if (refri != "Nenhum")
+                {
+                    decimal precoRefri = CatalogoProdutos.ObterPreco(litragem);
+                    var produtoRefri = new Produtos(refri, precoRefri, "Refrigerante", Produtos.tipo.Refrigerante);
+                    contexto.Produtos.Add(produtoRefri);
 
-            Label lblTitulo = new Label();
-            lblTitulo.Text = titulo;
-            lblTitulo.Font = new Font("Segoe UI", 16, FontStyle.Bold);
-            lblTitulo.ForeColor = Color.Black;
-            lblTitulo.BackColor = Color.FromArgb(220, 200, 200, 200);
-            lblTitulo.Size = new Size(largura, 38);
-            lblTitulo.Location = new Point(0, 0);
-            lblTitulo.TextAlign = ContentAlignment.MiddleLeft;
-            grupo.Controls.Add(lblTitulo);
+                    var itemRefri = new ItensVendas(0, 0, 0, 1, precoRefri, $"{refri} {litragem}");
+                    contexto.ItensVendas.Add(itemRefri);
+                }
 
-            Label seta = new Label();
-            seta.Text = "\u25B2"; // ▲
-            seta.Font = new Font("Segoe UI", 14, FontStyle.Bold);
-            seta.ForeColor = Color.Black;
-            seta.BackColor = Color.Transparent;
-            seta.Size = new Size(30, 38);
-            seta.Location = new Point(largura - 30, 0);
-            seta.TextAlign = ContentAlignment.MiddleCenter;
-            grupo.Controls.Add(seta);
+                // 2. Quantidade (para pizza/sabores)
+                // Aqui, você pode atualizar a quantidade da pizza, se necessário
+                // (Se quiser, pode usar um controle para definir a quantidade de pizza)
+                // Exemplo:
+                // int quantidadePizza = ...; // coletado de algum controle
+                // var itemPizza = contexto.ItensVendas.FirstOrDefault(i => contexto.Produtos.Any(p => p.Tipo == Produtos.tipo.Pizza && p.Nome.Contains(i.Observacao)));
+                // if (itemPizza != null) itemPizza.Quantidade = quantidadePizza;
 
-            ListBox lista = new ListBox();
-            lista.Font = new Font("Segoe UI", 13, FontStyle.Regular);
-            lista.Size = new Size(largura, altura - 44);
-            lista.Location = new Point(0, 42);
-            lista.BorderStyle = BorderStyle.None;
-            lista.BackColor = Color.FromArgb(230, 210, 210, 210);
-            lista.ItemHeight = 28;
-            lista.SelectionMode = SelectionMode.One;
-            lista.Items.AddRange(opcoes);
-            grupo.Controls.Add(lista);
+                // 3. Desconto
+                decimal desconto = 0;
+                string descontoStr = lstDesconto.SelectedItem?.ToString()?.Trim().ToLower();
+                if (descontoStr == "sim")
+                {
+                    using (var formDesconto = new FormDesconto())
+                    {
+                        if (formDesconto.ShowDialog() == DialogResult.OK)
+                        {
+                            if (decimal.TryParse(formDesconto.txtDesconto.Text, out decimal valorDigitado))
+                            {
+                                valorDigitado = valorDigitado / 100;
+                                desconto = valorDigitado; // Aqui você atualiza a variável
+                                //MessageBox.Show($"Desconto aplicado: {desconto}%");
+                            }
+                        }
+                    }
+                }
 
-            return lista;
+
+                // 4. Valor total
+                decimal valorTotal = contexto.ItensVendas.Sum(item => item.Preco_Unitario * item.Quantidade);
+
+                // 5. Montar e salvar venda final
+                // 1. Monta e salva venda final
+                contexto.Venda = new Venda(DateTime.Now, valorTotal, desconto, contexto.Venda.FormaPagamento);
+                //var vendasController = new VendasController();
+                // 1. Salva a venda e pega o ID
+                int idVenda = VendasController.CadastrarVendaCompleta(contexto.Venda);
+
+                // 2. Atualiza o id_venda nos itens
+                foreach (var item in contexto.ItensVendas)
+                    item.Id_Venda = idVenda;
+
+                // 3. Salva os itens
+                foreach (var item in contexto.ItensVendas)
+                    new ItensVendasController().CadastrarItem(item);
+                // (Opcional) Salva produtos e sabores
+                foreach (var sabor in contexto.SaboresPizza)
+                    new SaboresPizzaController().insertFl(sabor);
+                foreach (var prod in contexto.Produtos)
+                    new ProdutosController().AdicionarProduto(prod);
+                //MessageBox.Show("Venda finalizada com sucesso!");
+
+
+                MessageBox.Show("Venda finalizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FormMainMenu formMM = new FormMainMenu();
+                formMM.Show();
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao finalizar venda: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void ReposicionarGrupo(ListBox lista, string titulo, int x, int y, int largura, int altura)
-        {
-            Panel grupo = (Panel)lista.Parent;
-            grupo.Location = new Point(x, y);
-            grupo.Size = new Size(largura, altura);
 
-            Label lblTitulo = (Label)grupo.Controls[0];
-            lblTitulo.Size = new Size(largura, 38);
-
-            Label seta = (Label)grupo.Controls[1];
-            seta.Location = new Point(largura - 30, 0);
-
-            lista.Size = new Size(largura, altura - 44);
-        }
     }
 }

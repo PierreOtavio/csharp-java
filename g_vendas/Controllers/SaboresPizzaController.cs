@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace g_vendas.Controllers
 {
-    internal class SaboresPizzaController
+    public class SaboresPizzaController
     {
         private readonly SaboresPizzaBLL _bll = new SaboresPizzaBLL();
 

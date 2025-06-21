@@ -1,7 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5B2B4F15-FF8B-4979-A2C4-B69B2CF56EB5}|g_vendas.csproj|C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\ui\\formcadastrovenda2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B2B4F15-FF8B-4979-A2C4-B69B2CF56EB5}|g_vendas.csproj|solutionrelative:ui\\formcadastrovenda2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,12 +14,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 231,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 3,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
@@ -25,7 +26,20 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormCadastroVenda2.cs",
+              "DocumentMoniker": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\UI\\FormCadastroVenda2.cs",
+              "RelativeDocumentMoniker": "UI\\FormCadastroVenda2.cs",
+              "ToolTip": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\UI\\FormCadastroVenda2.cs",
+              "RelativeToolTip": "UI\\FormCadastroVenda2.cs",
+              "ViewState": "AgIAAE0BAAAAAAAAAAAYwGwBAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T01:16:54.681Z",
+              "EditorCaption": ""
             }
           ]
         }
