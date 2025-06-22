@@ -5,41 +5,49 @@ Este sistema de vendas foi desenvolvido como parte de um projeto acadêmico no c
 
 O projeto aplica conceitos como:
 
-    Programação Orientada a Objetos
 
-    Acesso a banco de dados relacional com MySQL
+  Programação Orientada a Objetos
 
-    Criação programática de interfaces gráficas
+  Acesso a banco de dados relacional com MySQL
 
-    Estruturação em camadas (Model, Controller, DAL)
+  Criação programática de interfaces gráficas
+
+  Estruturação em camadas (Model, Controller, DAL)
+
+
 
 🛠️ Tecnologias Utilizadas
 
-    Linguagem: C# (.NET Framework 4.7.2)
 
-    Interface Gráfica: Windows Forms (sem designer visual)
+  Linguagem: C# (.NET Framework 4.7.2)
 
-    Banco de Dados: MySQL 8.0
+  Interface Gráfica: Windows Forms (sem designer visual)
 
-    IDE: Visual Studio 2022
+  Banco de Dados: MySQL 8.0
 
-    Conectividade: MySql.Data
+  IDE: Visual Studio 2022
 
-    Bibliotecas: ClosedXML, System.Drawing
+  Conectividade: MySql.Data
+
+  Bibliotecas: ClosedXML, System.Drawing
+
 
 📦 Funcionalidades
 
-    Cadastro de produtos e sabores de pizza
 
-    Registro e visualização de vendas
+  Cadastro de produtos e sabores de pizza
 
-    Seleção de múltiplos sabores com controle de proporções
+  Registro e visualização de vendas
 
-    Relatórios e exportação para Excel
+  Seleção de múltiplos sabores com controle de proporções
 
-    Validações básicas de dados e tratamento de erros
+  Relatórios e exportação para Excel
 
-🧱 Estrutura do Banco de Dados
+  Validações básicas de dados e tratamento de erros
+  
+
+🧱 Estrutura do Banco de Dados 
+```
 
 CREATE SCHEMA IF NOT EXISTS DB_vendas;
 USE DB_vendas;
@@ -68,84 +76,94 @@ CREATE TABLE pizza_sabores (
   FOREIGN KEY (id_item) REFERENCES itens_venda(id_item) ON DELETE CASCADE,
   FOREIGN KEY (id_sabor) REFERENCES sabores_pizza(id_sabor)
 );
+```
 
 🧩 Arquitetura em Camadas
+  Models: Representações das entidades (Produto, Venda, PizzaSabores, etc)
 
-    Models: Representações das entidades (Produto, Venda, PizzaSabores, etc)
+  Controllers: Lógica de negócio para operações de venda e cadastro
 
-    Controllers: Lógica de negócio para operações de venda e cadastro
+  DAL (Data Access Layer): ConsultorUniversal<T> com operações genéricas em MySQL
 
-    DAL (Data Access Layer): ConsultorUniversal<T> com operações genéricas em MySQL
-
-    UI: Telas criadas programaticamente com C#
+  UI: Telas criadas programaticamente com C#
 
 🧪 Telas Implementadas
 
-    FormLogin: Tela inicial com login
 
-    FormMainMenu: Menu principal com navegação
+  FormLogin: Tela inicial com login
 
-    FormCadastroVenda1 & 2: Cadastro de pedidos com múltiplos sabores
+  FormMainMenu: Menu principal com navegação
 
-    FormRelatorioHome: Dashboard com vendas
+  FormCadastroVenda1 & 2: Cadastro de pedidos com múltiplos sabores
 
-    FormVerMais: Visualização detalhada de um pedido
+  FormRelatorioHome: Dashboard com vendas
 
+  FormVerMais: Visualização detalhada de um pedido
+
+  
 🚧 Como Rodar o Projeto
 
-    Clone o repositório:
 
-    git clone https://github.com/seuusuario/seurepo.git
+  Clone o repositório:
 
-    Importe o projeto no Visual Studio 2022
+```git clone https://github.com/seuusuario/seurepo.git```
 
-    Configure a string de conexão com seu banco MySQL
+  Importe o projeto no Visual Studio 2022
 
-    Execute o script SQL para criar o banco de dados
+  Configure a string de conexão com seu banco MySQL
 
-    Compile e execute a aplicação
+  Execute o script SQL para criar o banco de dados
+
+  Compile e execute a aplicação
+  
 
 💡 Aprendizados
 
-    Uso de enums e relacionamentos em banco de dados
 
-    Criação programática de formulários e responsividade simples
+  Uso de enums e relacionamentos em banco de dados
 
-    Estruturação básica em camadas (MVC simplificado)
+  Criação programática de formulários e responsividade simples
 
-    Exportação para Excel e filtros por data
+  Estruturação básica em camadas (MVC simplificado)
 
-    CRUD genérico com programação genérica em C#
+  Exportação para Excel e filtros por data
+
+  CRUD genérico com programação genérica em C#
+  
 
 📈 Resultados Alcançados
 
-    Sistema funcional de vendas com interface intuitiva
+  Sistema funcional de vendas com interface intuitiva
 
-    Registro de pizzas com múltiplos sabores e proporções
+  Registro de pizzas com múltiplos sabores e proporções
 
-    Exportação de relatórios para Excel
+  Exportação de relatórios para Excel
 
-    Tratamento de exceções e validação de dados
+  Tratamento de exceções e validação de dados
 
 🎯 Possíveis Melhorias Futuras
 
-    Implementação de testes automatizados
 
-    Uso de padrões de projeto (como Repository, Service)
+  Implementação de testes automatizados
 
-    Refatoração para maior desacoplamento
+  Uso de padrões de projeto (como Repository, Service)
 
-    Interface mais moderna e personalizável
+  Refatoração para maior desacoplamento
 
-    Documentação de código mais completa
+  Interface mais moderna e personalizável
+
+  Documentação de código mais completa
+  
 
 👨‍💻 Sobre o Autor
 
 Sou [Otávio Pierre], estudante do curso técnico em Desenvolvimento de Sistemas, apaixonado por programação e design de sistemas. Este projeto marca meu progresso no aprendizado de C# e MySQL, com foco em construção de sistemas reais e funcionais.
 📬 Contato
 
-    Email: perresla111@gmail.com
 
-    Telefone: (37) 99832-0306
+  Email: perresla111@gmail.com
 
+  Telefone: (37) 99832-0306
+
+  
 <p align="center"> <img src="https://komarev.com/ghpvc/?username=SeuGitHub&color=red" alt="Profile views"/> </p>
