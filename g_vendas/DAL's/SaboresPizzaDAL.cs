@@ -42,6 +42,22 @@ namespace g_vendas.DAL_s
             consultor.Inserir("sabores_pizza", valores);
         }
 
+        public static SaboresPizza BuscarSaborPorNome(string nome)
+        {
+            SaboresPizza saborEncontrado = null;
+            Action<SaboresPizza> armazenador = s => saborEncontrado = s;
+
+            var consultor = new ConsultorUniversal<SaboresPizza>(
+                tabela: "sabores_pizza",
+                campos: "*",
+                armazenador: armazenador,
+                condicao: $"nome = '{nome.Replace("'", "''")}'"
+            );
+            consultor.BuscarEArmazenar();
+            return saborEncontrado;
+        }
+
+
         public static void exportToExcel(List<SaboresPizza> listaSabores)
         {
             ExcelExporter.ExportToExcel(listaSabores, "Sabores");

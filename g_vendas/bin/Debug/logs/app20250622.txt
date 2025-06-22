@@ -1,0 +1,182 @@
+2025-06-22 00:08:53.034 -03:00 [INF] Inserindo produto: Grande, Tipo: "Pizza"
+2025-06-22 00:08:53.175 -03:00 [INF] Produto inserido com sucesso: Grande
+2025-06-22 00:08:55.616 -03:00 [ERR] MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE nome = 'Frango'' at line 1
+   em MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__117.MoveNext() na /_/src/MySqlConnector/Core/ServerSession.cs:linha 1064
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Threading.Tasks.ValueTask`1.get_Result()
+   em MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() na /_/src/MySqlConnector/Core/ResultSet.cs:linha 37
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) na /_/src/MySqlConnector/MySqlDataReader.cs:linha 131
+   em MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() na /_/src/MySqlConnector/MySqlDataReader.cs:linha 507
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   em MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() na /_/src/MySqlConnector/Core/CommandExecutor.cs:linha 56
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() na /_/src/MySqlConnector/MySqlCommand.cs:linha 357
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em MySqlConnector.MySqlCommand.ExecuteReader() na /_/src/MySqlConnector/MySqlCommand.cs:linha 112
+   em Teste1.Data.Query.ConsultorUniversal`1.BuscarEArmazenar() na C:\Users\perre\OneDrive\Documentos\GitHub\csharp-java\g_vendas\DAL's\DBQuery\ConsultorUniversal.cs:linha 55
+2025-06-22 00:08:55.642 -03:00 [ERR] MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE nome = 'Calabresa'' at line 1
+   em MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__117.MoveNext() na /_/src/MySqlConnector/Core/ServerSession.cs:linha 1064
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Threading.Tasks.ValueTask`1.get_Result()
+   em MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() na /_/src/MySqlConnector/Core/ResultSet.cs:linha 37
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) na /_/src/MySqlConnector/MySqlDataReader.cs:linha 131
+   em MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() na /_/src/MySqlConnector/MySqlDataReader.cs:linha 507
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   em MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() na /_/src/MySqlConnector/Core/CommandExecutor.cs:linha 56
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() na /_/src/MySqlConnector/MySqlCommand.cs:linha 357
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em MySqlConnector.MySqlCommand.ExecuteReader() na /_/src/MySqlConnector/MySqlCommand.cs:linha 112
+   em Teste1.Data.Query.ConsultorUniversal`1.BuscarEArmazenar() na C:\Users\perre\OneDrive\Documentos\GitHub\csharp-java\g_vendas\DAL's\DBQuery\ConsultorUniversal.cs:linha 55
+2025-06-22 00:08:55.642 -03:00 [INF] Inserindo produto: Grande, Tipo: "Pizza"
+2025-06-22 00:08:55.642 -03:00 [INF] Produto inserido com sucesso: Grande
+2025-06-22 10:37:34.818 -03:00 [INF] Inserindo produto: Grande, Tipo: "Pizza"
+2025-06-22 10:37:35.016 -03:00 [INF] Produto inserido com sucesso: Grande
+2025-06-22 10:37:37.696 -03:00 [ERR] MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE nome = 'Frango'' at line 1
+   em MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__117.MoveNext() na /_/src/MySqlConnector/Core/ServerSession.cs:linha 1064
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Threading.Tasks.ValueTask`1.get_Result()
+   em MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() na /_/src/MySqlConnector/Core/ResultSet.cs:linha 37
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) na /_/src/MySqlConnector/MySqlDataReader.cs:linha 131
+   em MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() na /_/src/MySqlConnector/MySqlDataReader.cs:linha 507
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   em MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() na /_/src/MySqlConnector/Core/CommandExecutor.cs:linha 56
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() na /_/src/MySqlConnector/MySqlCommand.cs:linha 357
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em MySqlConnector.MySqlCommand.ExecuteReader() na /_/src/MySqlConnector/MySqlCommand.cs:linha 112
+   em Teste1.Data.Query.ConsultorUniversal`1.BuscarEArmazenar() na C:\Users\perre\OneDrive\Documentos\GitHub\csharp-java\g_vendas\DAL's\DBQuery\ConsultorUniversal.cs:linha 55
+2025-06-22 10:37:37.728 -03:00 [ERR] MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE nome = 'Napolitana'' at line 1
+   em MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__117.MoveNext() na /_/src/MySqlConnector/Core/ServerSession.cs:linha 1064
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Threading.Tasks.ValueTask`1.get_Result()
+   em MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() na /_/src/MySqlConnector/Core/ResultSet.cs:linha 37
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) na /_/src/MySqlConnector/MySqlDataReader.cs:linha 131
+   em MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() na /_/src/MySqlConnector/MySqlDataReader.cs:linha 507
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   em MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() na /_/src/MySqlConnector/Core/CommandExecutor.cs:linha 56
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() na /_/src/MySqlConnector/MySqlCommand.cs:linha 357
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em MySqlConnector.MySqlCommand.ExecuteReader() na /_/src/MySqlConnector/MySqlCommand.cs:linha 112
+   em Teste1.Data.Query.ConsultorUniversal`1.BuscarEArmazenar() na C:\Users\perre\OneDrive\Documentos\GitHub\csharp-java\g_vendas\DAL's\DBQuery\ConsultorUniversal.cs:linha 55
+2025-06-22 10:37:37.755 -03:00 [ERR] MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE nome = 'Toscana'' at line 1
+   em MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__117.MoveNext() na /_/src/MySqlConnector/Core/ServerSession.cs:linha 1064
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Threading.Tasks.ValueTask`1.get_Result()
+   em MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() na /_/src/MySqlConnector/Core/ResultSet.cs:linha 37
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) na /_/src/MySqlConnector/MySqlDataReader.cs:linha 131
+   em MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() na /_/src/MySqlConnector/MySqlDataReader.cs:linha 507
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   em MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() na /_/src/MySqlConnector/Core/CommandExecutor.cs:linha 56
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() na /_/src/MySqlConnector/MySqlCommand.cs:linha 357
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em MySqlConnector.MySqlCommand.ExecuteReader() na /_/src/MySqlConnector/MySqlCommand.cs:linha 112
+   em Teste1.Data.Query.ConsultorUniversal`1.BuscarEArmazenar() na C:\Users\perre\OneDrive\Documentos\GitHub\csharp-java\g_vendas\DAL's\DBQuery\ConsultorUniversal.cs:linha 55
+2025-06-22 10:37:37.776 -03:00 [ERR] MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE nome = 'Margherita'' at line 1
+   em MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__117.MoveNext() na /_/src/MySqlConnector/Core/ServerSession.cs:linha 1064
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Threading.Tasks.ValueTask`1.get_Result()
+   em MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() na /_/src/MySqlConnector/Core/ResultSet.cs:linha 37
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) na /_/src/MySqlConnector/MySqlDataReader.cs:linha 131
+   em MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() na /_/src/MySqlConnector/MySqlDataReader.cs:linha 507
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   em MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() na /_/src/MySqlConnector/Core/CommandExecutor.cs:linha 56
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() na /_/src/MySqlConnector/MySqlCommand.cs:linha 357
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em MySqlConnector.MySqlCommand.ExecuteReader() na /_/src/MySqlConnector/MySqlCommand.cs:linha 112
+   em Teste1.Data.Query.ConsultorUniversal`1.BuscarEArmazenar() na C:\Users\perre\OneDrive\Documentos\GitHub\csharp-java\g_vendas\DAL's\DBQuery\ConsultorUniversal.cs:linha 55
+2025-06-22 10:37:37.776 -03:00 [INF] Inserindo produto: Grande, Tipo: "Pizza"
+2025-06-22 10:37:37.776 -03:00 [INF] Produto inserido com sucesso: Grande
+2025-06-22 10:37:43.785 -03:00 [INF] Trying to search all kinds of flavours
+2025-06-22 11:05:30.090 -03:00 [INF] Inserindo produto: Pequena, Tipo: "Pizza"
+2025-06-22 11:05:30.244 -03:00 [INF] Produto inserido com sucesso: Pequena
+2025-06-22 11:05:32.747 -03:00 [ERR] MySqlConnector.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE nome = 'Frango'' at line 1
+   em MySqlConnector.Core.ServerSession.<ReceiveReplyAsync>d__117.MoveNext() na /_/src/MySqlConnector/Core/ServerSession.cs:linha 1064
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Threading.Tasks.ValueTask`1.get_Result()
+   em MySqlConnector.Core.ResultSet.<ReadResultSetHeaderAsync>d__2.MoveNext() na /_/src/MySqlConnector/Core/ResultSet.cs:linha 37
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em MySqlConnector.MySqlDataReader.ActivateResultSet(CancellationToken cancellationToken) na /_/src/MySqlConnector/MySqlDataReader.cs:linha 131
+   em MySqlConnector.MySqlDataReader.<InitAsync>d__107.MoveNext() na /_/src/MySqlConnector/MySqlDataReader.cs:linha 507
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   em MySqlConnector.Core.CommandExecutor.<ExecuteReaderAsync>d__0.MoveNext() na /_/src/MySqlConnector/Core/CommandExecutor.cs:linha 56
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em MySqlConnector.MySqlCommand.<ExecuteReaderAsync>d__84.MoveNext() na /_/src/MySqlConnector/MySqlCommand.cs:linha 357
+--- Fim do rastreamento de pilha do local anterior onde a exceção foi gerada ---
+   em System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   em System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   em MySqlConnector.MySqlCommand.ExecuteReader() na /_/src/MySqlConnector/MySqlCommand.cs:linha 112
+   em Teste1.Data.Query.ConsultorUniversal`1.BuscarEArmazenar() na C:\Users\perre\OneDrive\Documentos\GitHub\csharp-java\g_vendas\DAL's\DBQuery\ConsultorUniversal.cs:linha 55
+2025-06-22 11:05:32.747 -03:00 [INF] Inserindo produto: Pequena, Tipo: "Pizza"
+2025-06-22 11:05:32.747 -03:00 [INF] Produto inserido com sucesso: Pequena
+2025-06-22 11:05:59.226 -03:00 [INF] Trying to search all kinds of flavours

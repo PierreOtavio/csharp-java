@@ -28,12 +28,12 @@ namespace g_vendas.DAL_s
         public static int insertVenda(Venda venda)
         {
             var valores = new Dictionary<string, object>
-    {
-        {"data_venda", venda.data_venda},
-        {"desconto", venda.desconto},
-        {"valor_total", venda.valor_total},
-        {"forma_pagamento", venda.FormaPagamento}
-    };
+            {
+                {"data_venda", venda.data_venda},
+                {"desconto", venda.desconto},
+                {"valor_total", venda.valor_total},
+                {"forma_pagamento", venda.FormaPagamento.ToString()}
+            };
 
             var consultor = new ConsultorUniversal<Venda>(
                 tabela: "vendas",

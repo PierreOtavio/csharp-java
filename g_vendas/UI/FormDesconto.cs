@@ -20,7 +20,7 @@ namespace g_vendas.UI
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             //this.MaximizeBox = true;
             this.MinimizeBox = true;
-            this.BackColor = Color.FromArgb(245, 225, 225);
+            this.BackColor = Color.FromArgb(185, 154, 134);
 
             // Label
             Label lbl = new Label();
@@ -50,7 +50,7 @@ namespace g_vendas.UI
             btnConfirmar = new Button();
             btnConfirmar.Text = "Confirmar";
             btnConfirmar.Font = new Font("Segoe UI", 12, FontStyle.Regular);
-            btnConfirmar.BackColor = Color.FromArgb(40, 180, 40);
+            btnConfirmar.BackColor = ColorTranslator.FromHtml("#21B421");
             btnConfirmar.ForeColor = Color.White;
             btnConfirmar.FlatStyle = FlatStyle.Flat;
             btnConfirmar.Click += (s, e) =>

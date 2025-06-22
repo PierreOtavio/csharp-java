@@ -23,25 +23,24 @@ namespace g_vendas.DAL_s
             return listaProd;
         }
 
-        public static void insertProd(Produtos produtos)
+        public static int insertProd(Produtos produtos)
         {
             var valores = new Dictionary<string, object>
-                {
-                    {"nome", produtos.Descricao },
-                    {"preco", produtos.Preco },
-                    {"descricao", produtos.Nome },
-                    {"tipo", produtos.Tipo }
-                };
-
-            var consultor = new ConsultorUniversal<Produtos>
-                (
-                    tabela: "produtos",
-                    campos: "*",
-                    armazenador: null
-                );
-
-            consultor.Inserir("produtos", valores);
+            {
+                {"nome", produtos.Nome },
+                {"preco", produtos.Preco },
+                {"descricao", produtos.Descricao },
+                {"tipo", produtos.Tipo }
+            };
+            var consultor = new ConsultorUniversal<Produtos>(
+                tabela: "produtos",
+                campos: "*",
+                armazenador: null
+            );
+            long idGerado = consultor.Inserir("produtos", valores);
+            return (int)idGerado;
         }
+
 
         public static void exportToExcel(List<Produtos> listaProd)
         {

@@ -1,4 +1,5 @@
 ﻿using g_vendas.Logger;
+using g_vendas.Models;
 using MySqlConnector;
 using System;
 using System.Collections.Generic;
@@ -62,11 +63,25 @@ namespace Teste1.Data.Query
                             foreach (var prop in propriedades)
                             {
                                 if (!reader.HasColumn(prop.Name)) continue;
-
                                 var valor = reader[prop.Name];
                                 if (valor != DBNull.Value)
                                 {
-                                    prop.SetValue(obj, Convert.ChangeType(valor, prop.PropertyType));
+                                    if (prop.Name == "FormaPagamento" || prop.Name == "forma_pagamento")
+                                    {
+                                        string formaPagamentoStr = valor.ToString();
+                                        if (Enum.TryParse<Venda.forma_pagamento>(formaPagamentoStr, out var formaPagamento))
+                                        {
+                                            prop.SetValue(obj, formaPagamento);
+                                        }
+                                        else
+                                        {
+                                            prop.SetValue(obj, Venda.forma_pagamento.Dinheiro); // valor padrão
+                                        }
+                                    }
+                                    else
+                                    {
+                                        prop.SetValue(obj, Convert.ChangeType(valor, prop.PropertyType));
+                                    }
                                 }
                             }
 

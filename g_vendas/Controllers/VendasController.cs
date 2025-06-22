@@ -1,4 +1,5 @@
 ﻿using g_vendas.BLL_s;
+using g_vendas.DAL_s;
 using g_vendas.Models;
 using System;
 using System.Collections.Generic;
@@ -25,21 +26,18 @@ namespace g_vendas.Controllers
 
         // Cadastrar venda completa
         // No VendasController
-        public static int CadastrarVendaCompleta(Venda venda)
+        public int CadastrarVendaCompleta(Venda venda)
         {
             try
             {
-                // Supondo que VendasBLL.CadastrarVenda retorna o ID gerado
-                int idVenda = VendasBLL.CadastrarVenda(venda);
-                if (idVenda <= 0)
-                    throw new Exception("Falha ao cadastrar venda. Verifique os dados informados.");
-                return idVenda;
+                return VendasDAL.insertVenda(venda);
             }
             catch (Exception ex)
             {
                 throw new Exception($"Erro ao cadastrar venda: {ex.Message}");
             }
         }
+
 
 
         // Buscar vendas por período

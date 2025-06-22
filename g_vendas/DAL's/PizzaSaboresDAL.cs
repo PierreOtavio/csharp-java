@@ -2,7 +2,6 @@
 using g_vendas.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Teste1.Data.Query;
 
 namespace g_vendas.DAL_s
@@ -25,16 +24,23 @@ namespace g_vendas.DAL_s
             return listaPSab;
         }
 
-        public static decimal CalcularProporcaoMedia()
+
+        public static void insertProporcao(int id_item, int id_sabor, string pizzaProporcao)
         {
-            var lista = search(); // busca todos os sabores
-            if (lista == null || lista.Count == 0)
-                return 0;
-
-            return lista.Average(s => s.proporcao);
+            var valores = new Dictionary<string, object>
+            {
+                {"id_item", id_item},
+                {"id_sabor", id_sabor},
+                {"proporcao", pizzaProporcao}
+                // Adicione outros campos se necessário
+            };
+            var consultor = new ConsultorUniversal<PizzaSabores>(
+                tabela: "pizza_sabores",
+                campos: "*",
+                armazenador: null
+            );
+            consultor.Inserir("pizza_sabores", valores);
         }
-
-
 
         public static void exportToExcel(List<PizzaSabores> listaPSab)
         {

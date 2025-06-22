@@ -15,11 +15,11 @@ namespace g_vendas.BLL
             return PizzaSaboresDAL.search();
         }
 
-        public static decimal CalcularProporcaoMedia()
-        {
-            //var listaPsab = PizzaSaboresDAL.search();
-            return PizzaSaboresDAL.CalcularProporcaoMedia();
-        }
+        //public static decimal CalcularProporcaoMedia()
+        //{
+        //    //var listaPsab = PizzaSaboresDAL.search();
+        //    return PizzaSaboresDAL.CalcularProporcaoMedia();
+        //}
         /// <summary>
         /// Exporta dados para Excel com tratamento de erros e validações
         /// </summary>
@@ -47,5 +47,9 @@ namespace g_vendas.BLL
         }
 
         // Adicione aqui outros métodos de negócio conforme necessário
+        public static void InserirProporcao(int id_item, int id_sabor, string pizzaProporcao)
+        {
+            PizzaSaboresDAL.insertProporcao(id_item, id_sabor, pizzaProporcao);
+        }
     }
 }

@@ -2,6 +2,7 @@
 using g_vendas.Models;
 using g_vendas.Models.Contextualizator;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -39,7 +40,7 @@ namespace g_vendas.UI
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.BackColor = Color.FromArgb(236, 234, 234);
+            this.BackColor = corPainel;
 
             // Painel de fundo (rosado)
             panelFundo = new Panel
@@ -164,7 +165,7 @@ namespace g_vendas.UI
             {
                 Text = "Próximo",
                 Font = new Font("Segoe UI", 16, FontStyle.Regular),
-                BackColor = Color.FromArgb(40, 180, 40),
+                BackColor = ColorTranslator.FromHtml("#21B421"),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
                 FlatAppearance = { BorderSize = 0 },
@@ -239,16 +240,28 @@ namespace g_vendas.UI
 
         private void AtualizarLayout()
         {
-            int margem = (int)(this.ClientSize.Width * 0.05f);
-            int alturaPanelFundo = (int)(this.ClientSize.Height * 0.8f);
-            int larguraPanelFundo = (int)(this.ClientSize.Width * 0.9f);
+            // Defina a margem desejada para o espaço branco(por exemplo, 30px)
+            int margem = 30;
 
-            panelFundo.Location = new Point(margem, (this.ClientSize.Height - alturaPanelFundo) / 2);
+            // Ajuste o tamanho do panelFundo para ficar menor que o formulário
+            int larguraPanelFundo = this.ClientSize.Width - 2 * margem;
+            int alturaPanelFundo = this.ClientSize.Height - 2 * margem;
+
+            // Centralize o panelFundo
+            panelFundo.Location = new Point(margem, margem);
             panelFundo.Size = new Size(larguraPanelFundo, alturaPanelFundo);
 
+            // Agora ajuste o panelBranco dentro do panelFundo normalmente
             int margemInterna = (int)(panelFundo.Height * 0.08f);
             int larguraPanelBranco = (int)(panelFundo.Width * 0.92f);
             int alturaPanelBranco = (int)(panelFundo.Height * 0.80f);
+
+            panelBranco.Location = new Point((panelFundo.Width - larguraPanelBranco) / 2, margemInterna);
+            panelBranco.Size = new Size(larguraPanelBranco, alturaPanelBranco);
+
+            //int margemInterna = (int)(panelFundo.Height * 0.08f);
+            //int larguraPanelBranco = (int)(panelFundo.Width * 0.92f);
+            //int alturaPanelBranco = (int)(panelFundo.Height * 0.80f);
 
             panelBranco.Location = new Point((panelFundo.Width - larguraPanelBranco) / 2, margemInterna);
             panelBranco.Size = new Size(larguraPanelBranco, alturaPanelBranco);
@@ -312,16 +325,13 @@ namespace g_vendas.UI
                     contexto.ItensVendas.Add(itemRefri);
                 }
 
-                // 2. Quantidade (para pizza/sabores)
-                // Aqui, você pode atualizar a quantidade da pizza, se necessário
-                // (Se quiser, pode usar um controle para definir a quantidade de pizza)
-                // Exemplo:
-                // int quantidadePizza = ...; // coletado de algum controle
-                // var itemPizza = contexto.ItensVendas.FirstOrDefault(i => contexto.Produtos.Any(p => p.Tipo == Produtos.tipo.Pizza && p.Nome.Contains(i.Observacao)));
-                // if (itemPizza != null) itemPizza.Quantidade = quantidadePizza;
+                // 1. Calcula o valor total dos itens
+                decimal valorTotalItens = contexto.ItensVendas.Sum(item => item.Preco_Unitario * item.Quantidade);
 
-                // 3. Desconto
-                decimal desconto = 0;
+                // 2. Inicializa o desconto como zero (porcentagem)
+                decimal descontoPercentual = 0;
+
+                // 3. Se o usuário escolheu aplicar desconto
                 string descontoStr = lstDesconto.SelectedItem?.ToString()?.Trim().ToLower();
                 if (descontoStr == "sim")
                 {
@@ -331,39 +341,89 @@ namespace g_vendas.UI
                         {
                             if (decimal.TryParse(formDesconto.txtDesconto.Text, out decimal valorDigitado))
                             {
-                                valorDigitado = valorDigitado / 100;
-                                desconto = valorDigitado; // Aqui você atualiza a variável
-                                //MessageBox.Show($"Desconto aplicado: {desconto}%");
+                                descontoPercentual = valorDigitado / 100m; // Converte para decimal e divide por 100
                             }
                         }
                     }
                 }
 
+                // 4. Atribui o valor total e o desconto à venda
+                contexto.Venda.valor_total = valorTotalItens;
+                contexto.Venda.desconto = descontoPercentual;
 
-                // 4. Valor total
-                decimal valorTotal = contexto.ItensVendas.Sum(item => item.Preco_Unitario * item.Quantidade);
+                // 5. O valor final pode ser obtido pela propriedade ValorFinal do model Venda
+                decimal valorFinal = contexto.Venda.ValorFinal;
 
-                // 5. Montar e salvar venda final
-                // 1. Monta e salva venda final
-                contexto.Venda = new Venda(DateTime.Now, valorTotal, desconto, contexto.Venda.FormaPagamento);
-                //var vendasController = new VendasController();
-                // 1. Salva a venda e pega o ID
-                int idVenda = VendasController.CadastrarVendaCompleta(contexto.Venda);
+                // Pode exibir o valor final para o usuário, se quiser
+                MessageBox.Show($"Valor total: {valorTotalItens:C}\nDesconto: {descontoPercentual:P0}\nValor final: {valorFinal:C}");
 
-                // 2. Atualiza o id_venda nos itens
+                var pizzaSaboresController = new PizzaSaboresController();
+                var prodControl = new ProdutosController();
+                var saboresController = new SaboresPizzaController();
+                var vendasController = new VendasController();
+
+                // 2. Salva o produto e pega o ID
+                int idProduto = prodControl.AdicionarProduto(contexto.Produtos[0]);
+
+                //MessageBox.Show($"Valor total da venda: {contexto.Venda.valor_total}");
+
+                // 3. Salva a venda e pega o ID gerado
+                int idVenda = vendasController.CadastrarVendaCompleta(contexto.Venda);
+
+                // 4. Atualiza os itens de venda com os IDs corretos
                 foreach (var item in contexto.ItensVendas)
+                {
                     item.Id_Venda = idVenda;
+                    item.Id_Produto = idProduto;
+                }
 
-                // 3. Salva os itens
+                // 5. Salva os itens de venda e armazena o id_item gerado do item de pizza
+                int idItemPizza = 0;
+
                 foreach (var item in contexto.ItensVendas)
+                {
                     new ItensVendasController().CadastrarItem(item);
-                // (Opcional) Salva produtos e sabores
-                foreach (var sabor in contexto.SaboresPizza)
-                    new SaboresPizzaController().insertFl(sabor);
-                foreach (var prod in contexto.Produtos)
-                    new ProdutosController().AdicionarProduto(prod);
-                //MessageBox.Show("Venda finalizada com sucesso!");
 
+                    if (item.Observacao != null && item.Observacao.ToLower().Contains("pizza"))
+                    {
+                        // Busca o id gerado do item de pizza após o insert
+                        var itensDaVenda = new ItensVendasController().BuscarItensPorVenda(idVenda) as List<ItensVendas>;
+                        var itemPizza = itensDaVenda.FirstOrDefault(i => i.Id_Produto == idProduto && i.Id_Venda == idVenda);
+
+                        if (itemPizza != null)
+                        {
+                            idItemPizza = itemPizza.Id_Item;
+                            foreach (var sabor in contexto.SaboresPizza)
+                            {
+                                var saborBanco = saboresController.BuscarSaborPorNome(sabor.nome);
+                                if (saborBanco != null)
+                                {
+                                    pizzaSaboresController.InsertProporcao(idItemPizza, saborBanco.id, contexto.PizzaSabores.proporcao);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // 6. Salva os sabores (garante que estão no banco)
+                foreach (var sabor in contexto.SaboresPizza)
+                    saboresController.insertFl(sabor);
+
+                // 7. Para cada sabor, salva a proporção na tabela pizza_sabores
+                foreach (var sabor in contexto.SaboresPizza)
+                {
+                    // Busca o id do sabor pelo nome
+                    var saborBanco = saboresController.BuscarSaborPorNome(sabor.nome);
+                    if (saborBanco != null && idItemPizza != 0)
+                    {
+                        // Salva a proporção para este sabor e este item de pizza
+                        pizzaSaboresController.InsertProporcao(idItemPizza, saborBanco.id, contexto.PizzaSabores.proporcao);
+                    }
+                }
+
+                // 8. Salva outros produtos (ex: refrigerante)
+                foreach (var prod in contexto.Produtos)
+                    prodControl.AdicionarProduto(prod);
 
                 MessageBox.Show("Venda finalizada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FormMainMenu formMM = new FormMainMenu();

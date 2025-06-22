@@ -12,9 +12,9 @@ namespace g_vendas.Controllers
             return ProdutosBLL.GetProdutos();
         }
 
-        public void AdicionarProduto(Produtos produto)
+        public int AdicionarProduto(Produtos produto)
         {
-            ProdutosBLL.InsertProduto(produto);
+            return ProdutosBLL.InsertProduto(produto);
         }
 
         public void ExportarProdutosParaExcel(List<Produtos> produtos)

@@ -2,16 +2,13 @@
 {
     public class PizzaSabores
     {
-        public decimal proporcao;
+        public string proporcao;
         public int id;
-        public int id_pizzaSabores;
+        public int id_item;
+        public int id_sabor;
 
         public PizzaSabores() { }
 
-        public PizzaSabores(decimal proporcao)
-        {
-            this.proporcao = proporcao;
-            //this.id = id;
-        }
+        public PizzaSabores(string proporcao) => this.proporcao = proporcao;
     }
 }

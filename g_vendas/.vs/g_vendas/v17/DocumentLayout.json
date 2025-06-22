@@ -3,8 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5B2B4F15-FF8B-4979-A2C4-B69B2CF56EB5}|g_vendas.csproj|C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\ui\\formcadastrovenda2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5B2B4F15-FF8B-4979-A2C4-B69B2CF56EB5}|g_vendas.csproj|c:\\users\\perre\\onedrive\\documentos\\github\\csharp-java\\g_vendas\\ui\\formcadastrovenda2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B2B4F15-FF8B-4979-A2C4-B69B2CF56EB5}|g_vendas.csproj|solutionrelative:ui\\formcadastrovenda2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B2B4F15-FF8B-4979-A2C4-B69B2CF56EB5}|g_vendas.csproj|C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\controllers\\itensvendascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B2B4F15-FF8B-4979-A2C4-B69B2CF56EB5}|g_vendas.csproj|solutionrelative:controllers\\itensvendascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B2B4F15-FF8B-4979-A2C4-B69B2CF56EB5}|g_vendas.csproj|C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\ui\\formvermais.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B2B4F15-FF8B-4979-A2C4-B69B2CF56EB5}|g_vendas.csproj|solutionrelative:ui\\formvermais.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B2B4F15-FF8B-4979-A2C4-B69B2CF56EB5}|g_vendas.csproj|C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\bll\u0027s\\pizzasaboresbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B2B4F15-FF8B-4979-A2C4-B69B2CF56EB5}|g_vendas.csproj|solutionrelative:bll\u0027s\\pizzasaboresbll.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B2B4F15-FF8B-4979-A2C4-B69B2CF56EB5}|g_vendas.csproj|C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\ui\\formcadastrovenda1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B2B4F15-FF8B-4979-A2C4-B69B2CF56EB5}|g_vendas.csproj|solutionrelative:ui\\formcadastrovenda1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -36,10 +52,58 @@
               "RelativeDocumentMoniker": "UI\\FormCadastroVenda2.cs",
               "ToolTip": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\UI\\FormCadastroVenda2.cs",
               "RelativeToolTip": "UI\\FormCadastroVenda2.cs",
-              "ViewState": "AgIAAE0BAAAAAAAAAAAYwGwBAABDAAAAAAAAAA==",
+              "ViewState": "AgIAAIQBAAAAAAAAAAAUwJUBAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-21T01:16:54.681Z",
+              "WhenOpened": "2025-06-22T02:04:29.117Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ItensVendasController.cs",
+              "DocumentMoniker": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\Controllers\\ItensVendasController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ItensVendasController.cs",
+              "ToolTip": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\Controllers\\ItensVendasController.cs",
+              "RelativeToolTip": "Controllers\\ItensVendasController.cs",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAAAI0AAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T03:06:00.788Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PizzaSaboresBLL.cs",
+              "DocumentMoniker": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\BLL\u0027s\\PizzaSaboresBLL.cs",
+              "RelativeDocumentMoniker": "BLL\u0027s\\PizzaSaboresBLL.cs",
+              "ToolTip": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\BLL\u0027s\\PizzaSaboresBLL.cs",
+              "RelativeToolTip": "BLL\u0027s\\PizzaSaboresBLL.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAswDYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T02:09:29.415Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormCadastroVenda1.cs",
+              "DocumentMoniker": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\UI\\FormCadastroVenda1.cs",
+              "RelativeDocumentMoniker": "UI\\FormCadastroVenda1.cs",
+              "ToolTip": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\UI\\FormCadastroVenda1.cs",
+              "RelativeToolTip": "UI\\FormCadastroVenda1.cs",
+              "ViewState": "AgIAAPwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T02:04:27.361Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormVerMais.cs",
+              "DocumentMoniker": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\UI\\FormVerMais.cs",
+              "RelativeDocumentMoniker": "UI\\FormVerMais.cs",
+              "ToolTip": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\g_vendas\\UI\\FormVerMais.cs",
+              "RelativeToolTip": "UI\\FormVerMais.cs",
+              "ViewState": "AgIAAPkAAAAAAAAAAAAAAPoAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-22T02:02:36.232Z"
             }
           ]
         }

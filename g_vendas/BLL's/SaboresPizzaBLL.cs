@@ -65,5 +65,18 @@ namespace g_vendas.BLL_s
                 return false;
             }
         }
+
+        public SaboresPizza BuscarSaborPorNome(string nome)
+        {
+            try
+            {
+                return SaboresPizzaDAL.BuscarSaborPorNome(nome);
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Erro ao buscar sabor por nome.", ex);
+            }
+        }
+
     }
 }

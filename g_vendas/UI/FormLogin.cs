@@ -25,7 +25,7 @@ namespace g_vendas.UI
 
             // Painel de fundo
             panelFundo = new Panel();
-            panelFundo.BackColor = Color.FromArgb(189, 154, 154, 154);
+            panelFundo.BackColor = Color.FromArgb(185, 154, 134);
             this.Controls.Add(panelFundo);
 
             // Painel do logo
@@ -46,13 +46,14 @@ namespace g_vendas.UI
             lblBemVindo.Font = new Font("Segoe UI", 10, FontStyle.Italic);
             lblBemVindo.AutoSize = false;
             lblBemVindo.TextAlign = ContentAlignment.TopCenter;
-            panelFundo.Controls.Add(lblBemVindo);
+            //panelLogin.Controls.Add(lblBemVindo);
 
             // Painel de login
             panelLogin = new Panel();
             panelFundo.BackColor = ColorTranslator.FromHtml("#C7A5A5");
             //panelLogin.BackColor = Color.White;
             panelFundo.Controls.Add(panelLogin);
+            panelLogin.Controls.Add(lblBemVindo);
 
             // Label LOGIN
             lblLogin = new Label();

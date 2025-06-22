@@ -17,7 +17,7 @@ namespace g_vendas.UI
         private ListBox lstPizza, lstDivisao, lstFormaPagamento;
         private CheckedListBox chkListSaboresNormais, chkListSaboresEspeciais;
         private Color corFundo = Color.FromArgb(185, 154, 134);
-        //private Color corPainel = Color.White;
+        private Color corPainel = Color.White;
         private Color corBotao = Color.FromArgb(220, 200, 200);
         private Color corBotaoHover = Color.FromArgb(230, 210, 210);
         private Color corBorda = Color.FromArgb(150, 120, 120);
@@ -27,7 +27,7 @@ namespace g_vendas.UI
         private readonly string[] opcoesDivisao = { "1", "1/2", "1/4" };
         private readonly string[] opcoesPagamento = { "Dinheiro", "Cartao", "PIX", "Outro" };
         private readonly string[] saboresNormais = { "Frango", "Calabresa", "Napolitana", "Lombinho", "À moda da Grá" };
-        private readonly string[] saboresEspeciais = { "Atum", "Pepperoni", "Brigadeiro", "Portuguesa", "P. Espanhola", "5 Queijos", "Frango c/ Bacon", "Frango c/ Catupiry", "Toscana", "Margherita", "" };
+        private readonly string[] saboresEspeciais = { "Atum", "Pepperoni", "Brigadeiro", "Portuguesa", "P. Espanhola", "5 Queijos", "Frango c/ Bacon", "Frango c/ Catupiry", "Toscana", "Margherita", "Banana Caramelada" };
 
         public FormCadastroVenda1()
         {
@@ -40,14 +40,17 @@ namespace g_vendas.UI
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = true;
-            this.BackColor = Color.FromArgb(236, 234, 234);
+            this.BackColor = Color.White;
+            this.BackColor = Color.White;
+
 
             // Painel de fundo (rosado)
             panelFundo = new Panel
             {
                 BackColor = corFundo,
                 Location = new Point(0, 0),
-                Size = this.ClientSize
+                //Size = this.ClientSize
+
             };
             this.Controls.Add(panelFundo);
 
@@ -209,7 +212,7 @@ namespace g_vendas.UI
             {
                 Text = "Próximo ▶",
                 Font = new Font("Segoe UI", 16, FontStyle.Regular),
-                BackColor = Color.FromArgb(40, 180, 40),
+                BackColor = BackColor = ColorTranslator.FromHtml("#21B421"),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
                 FlatAppearance = { BorderSize = 0 },
@@ -219,18 +222,18 @@ namespace g_vendas.UI
             };
             btnProximo.Click += (s, e) =>
             {
-                var vendasController = new VendasController();
+
                 // 1. Obtém os dados selecionados pelo usuário
+                var vendasController = new VendasController();
                 string pizzaSelecionada = btnPizza.Text;
-                string divisaoSelecionada = btnDivisao.Text;
-                string formaPagamentoSelecionada = btnFormaPagamento.Text;
+                string divisaoSelecionada = btnDivisao.Text.Trim();
+                //MessageBox.Show(divisaoSelecionada);
+                string formaPagamentoSelecionada = btnFormaPagamento.Text.Trim();
 
                 // 2. Busca o preço da pizza no catálogo
                 decimal precoPizza = CatalogoProdutos.ObterPreco(pizzaSelecionada);
 
-                // 3. Calcula a proporção (só para controle de sabores, não para preço)
-                decimal proporcao = divisaoSelecionada == "1/2" ? 0.5m : divisaoSelecionada == "1/4" ? 0.25m : 1m;
-                var pizzaProporcao = new PizzaSabores(proporcao);
+                var pizzaProporcao = new PizzaSabores(divisaoSelecionada);
 
                 // 4. Monta a lista de sabores selecionados (normais e especiais)
                 var nomesSabores = new List<string>();
@@ -242,26 +245,26 @@ namespace g_vendas.UI
                 // 5. Junta todos os sabores em uma string, separados por "/"
                 string descricaoSabores = string.Join("/", nomesSabores);
 
+                // 6. Cria a lista de objetos SaboresPizza
+                var listaSaboresPizza = new List<SaboresPizza>();
+                foreach (var nome in nomesSabores)
+                {
+                    listaSaboresPizza.Add(new SaboresPizza(nome, "Descrição automática"));
+                }
+
                 // 6. Cria apenas UM item de pizza, com todos os sabores na observação
                 var produtoPizza = new Produtos(pizzaSelecionada, precoPizza, "Pizza", Produtos.tipo.Pizza);
                 var itens = new List<ItensVendas>();
                 itens.Add(new ItensVendas(0, 0, 0, 1, precoPizza, $"{descricaoSabores} {pizzaSelecionada}"));
-
-                // 7. (Opcional) Adiciona o refrigerante, se selecionado
-                // Exemplo: se você tiver uma lista ou combo para refrigerante, pode adicionar aqui
-                // decimal precoRefri = CatalogoProdutos.ObterPreco("2L");
-                // itens.Add(new ItensVendas(0, 0, 0, 1, precoRefri, "Coca 2L"));
-
-                // 8. Converte a forma de pagamento para o enum
-                //var vendasController = new VendasController();
                 var formaPagamento = vendasController.ConverterFormaPagamento(formaPagamentoSelecionada);
+
 
                 // 9. Monta o contexto para passar para o próximo form
                 var contexto = new ContextoCadastroVenda
                 {
                     Produtos = new List<Produtos> { produtoPizza },
                     PizzaSabores = pizzaProporcao,
-                    SaboresPizza = new List<SaboresPizza>(), // você pode preencher aqui, se necessário
+                    SaboresPizza = listaSaboresPizza, // você pode preencher aqui, se necessário
                     ItensVendas = itens,
                     Venda = new Venda(DateTime.Now, 0, 0, formaPagamento)
                 };
@@ -379,13 +382,18 @@ namespace g_vendas.UI
 
         private void AtualizarLayout()
         {
-            int margem = (int)(this.ClientSize.Width * 0.05f);
-            int alturaPanelFundo = (int)(this.ClientSize.Height * 0.8f);
-            int larguraPanelFundo = (int)(this.ClientSize.Width * 0.9f);
+            // Defina a margem desejada para o espaço branco (por exemplo, 30px)
+            int margem = 30;
 
-            panelFundo.Location = new Point(margem, (this.ClientSize.Height - alturaPanelFundo) / 2);
+            // Ajuste o tamanho do panelFundo para ficar menor que o formulário
+            int larguraPanelFundo = this.ClientSize.Width - 2 * margem;
+            int alturaPanelFundo = this.ClientSize.Height - 2 * margem;
+
+            // Centralize o panelFundo
+            panelFundo.Location = new Point(margem, margem);
             panelFundo.Size = new Size(larguraPanelFundo, alturaPanelFundo);
 
+            // Agora ajuste o panelBranco dentro do panelFundo normalmente
             int margemInterna = (int)(panelFundo.Height * 0.08f);
             int larguraPanelBranco = (int)(panelFundo.Width * 0.92f);
             int alturaPanelBranco = (int)(panelFundo.Height * 0.80f);

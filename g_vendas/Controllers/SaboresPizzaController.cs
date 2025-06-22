@@ -31,5 +31,11 @@ namespace g_vendas.Controllers
         {
             SaboresPizzaBLL.ExportarParaExcel(sabores);
         }
+
+        public SaboresPizza BuscarSaborPorNome(string nome)
+        {
+            return _bll.BuscarSaborPorNome(nome);
+        }
+
     }
 }

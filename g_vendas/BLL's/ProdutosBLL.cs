@@ -24,7 +24,7 @@ namespace g_vendas.BLL
         }
 
         // Insere um novo produto (com validações e log)
-        public static void InsertProduto(Produtos produto)
+        public static int InsertProduto(Produtos produto)
         {
             // Validações básicas
             if (string.IsNullOrWhiteSpace(produto.Nome))
@@ -48,8 +48,8 @@ namespace g_vendas.BLL
             try
             {
                 loggerC_.Info("Inserindo produto: {Nome}, Tipo: {Tipo}", produto.Nome, produto.Tipo);
-                ProdutosDAL.insertProd(produto);
                 loggerC_.Info("Produto inserido com sucesso: {Nome}", produto.Nome);
+                return ProdutosDAL.insertProd(produto);
             }
             catch (Exception ex)
             {

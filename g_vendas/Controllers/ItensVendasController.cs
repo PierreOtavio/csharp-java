@@ -3,6 +3,7 @@ using g_vendas.Models;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Teste1.Data.Query;
 
 namespace g_vendas.Controllers
 {
@@ -122,5 +123,26 @@ namespace g_vendas.Controllers
         {
             _bll.ExportarItensParaExcel(itens);
         }
+
+        public int CadastrarItemERetornarId(ItensVendas item)
+        {
+            // Monte o dicionário de valores conforme o padrão do seu projeto
+            var valores = new Dictionary<string, object>
+            {
+                { "id_venda", item.Id_Venda },
+                { "id_produto", item.Id_Produto },
+                { "quantidade", item.Quantidade },
+                { "preco_unitario", item.Preco_Unitario },
+                { "observacao", item.Observacao }
+            };
+            var consultor = new ConsultorUniversal<ItensVendas>(
+                tabela: "itens_venda",
+                campos: "*",
+                armazenador: null
+                );
+            long idGerado = consultor.Inserir("itens_venda", valores);
+            return (int)idGerado;
+        }
+
     }
 }

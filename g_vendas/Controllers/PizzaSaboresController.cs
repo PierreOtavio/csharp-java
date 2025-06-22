@@ -26,9 +26,14 @@ namespace g_vendas.Controllers
         /// <summary>
         /// Calcula a proporção média dos sabores cadastrados.
         /// </summary>
-        public decimal CalcularProporcaoMedia()
+        //public decimal CalcularProporcaoMedia()
+        //{
+        //    return PizzaSaboresBLL.CalcularProporcaoMedia();
+        //}
+
+        public void InsertProporcao(int id_item, int id_sabor, string pizzaProporcao)
         {
-            return PizzaSaboresBLL.CalcularProporcaoMedia();
+            PizzaSaboresBLL.InserirProporcao(id_item, id_sabor, pizzaProporcao);
         }
     }
 }
