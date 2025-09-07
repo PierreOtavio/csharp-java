@@ -1,0 +1,197 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4AE9D3E2-5D27-4E71-B665-7A80B043FFFB}|WindowsFormsApp1.csproj|C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\solidapp\\interfaces\\iestoqueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AE9D3E2-5D27-4E71-B665-7A80B043FFFB}|WindowsFormsApp1.csproj|solutionrelative:solidapp\\interfaces\\iestoqueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AE9D3E2-5D27-4E71-B665-7A80B043FFFB}|WindowsFormsApp1.csproj|C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\solidapp\\services\\estoqueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AE9D3E2-5D27-4E71-B665-7A80B043FFFB}|WindowsFormsApp1.csproj|solutionrelative:solidapp\\services\\estoqueservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AE9D3E2-5D27-4E71-B665-7A80B043FFFB}|WindowsFormsApp1.csproj|C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\solidapp\\saidaestoque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AE9D3E2-5D27-4E71-B665-7A80B043FFFB}|WindowsFormsApp1.csproj|solutionrelative:solidapp\\saidaestoque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AE9D3E2-5D27-4E71-B665-7A80B043FFFB}|WindowsFormsApp1.csproj|C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\classes\\contoladorestoque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AE9D3E2-5D27-4E71-B665-7A80B043FFFB}|WindowsFormsApp1.csproj|solutionrelative:classes\\contoladorestoque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AE9D3E2-5D27-4E71-B665-7A80B043FFFB}|WindowsFormsApp1.csproj|c:\\users\\perre\\onedrive\\documentos\\github\\csharp-java\\windowsformsapp1\\formcontroleestoque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AE9D3E2-5D27-4E71-B665-7A80B043FFFB}|WindowsFormsApp1.csproj|solutionrelative:formcontroleestoque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AE9D3E2-5D27-4E71-B665-7A80B043FFFB}|WindowsFormsApp1.csproj|C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\solidapp\\entradaestoque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AE9D3E2-5D27-4E71-B665-7A80B043FFFB}|WindowsFormsApp1.csproj|solutionrelative:solidapp\\entradaestoque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AE9D3E2-5D27-4E71-B665-7A80B043FFFB}|WindowsFormsApp1.csproj|C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\solidapp\\interfaces\\imovimentacaoestoque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AE9D3E2-5D27-4E71-B665-7A80B043FFFB}|WindowsFormsApp1.csproj|solutionrelative:solidapp\\interfaces\\imovimentacaoestoque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AE9D3E2-5D27-4E71-B665-7A80B043FFFB}|WindowsFormsApp1.csproj|C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\classes\\lancamentoestoque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AE9D3E2-5D27-4E71-B665-7A80B043FFFB}|WindowsFormsApp1.csproj|solutionrelative:classes\\lancamentoestoque.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AE9D3E2-5D27-4E71-B665-7A80B043FFFB}|WindowsFormsApp1.csproj|C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\classes\\produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AE9D3E2-5D27-4E71-B665-7A80B043FFFB}|WindowsFormsApp1.csproj|solutionrelative:classes\\produto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4AE9D3E2-5D27-4E71-B665-7A80B043FFFB}|WindowsFormsApp1.csproj|C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4AE9D3E2-5D27-4E71-B665-7A80B043FFFB}|WindowsFormsApp1.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 231,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EstoqueService.cs",
+              "DocumentMoniker": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\SOLIDapp\\Services\\EstoqueService.cs",
+              "RelativeDocumentMoniker": "SOLIDapp\\Services\\EstoqueService.cs",
+              "ToolTip": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\SOLIDapp\\Services\\EstoqueService.cs",
+              "RelativeToolTip": "SOLIDapp\\Services\\EstoqueService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T18:26:15.708Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IEstoqueService.cs",
+              "DocumentMoniker": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\SOLIDapp\\interfaces\\IEstoqueService.cs",
+              "RelativeDocumentMoniker": "SOLIDapp\\interfaces\\IEstoqueService.cs",
+              "ToolTip": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\SOLIDapp\\interfaces\\IEstoqueService.cs",
+              "RelativeToolTip": "SOLIDapp\\interfaces\\IEstoqueService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T18:25:25.412Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SaidaEstoque.cs",
+              "DocumentMoniker": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\SOLIDapp\\SaidaEstoque.cs",
+              "RelativeDocumentMoniker": "SOLIDapp\\SaidaEstoque.cs",
+              "ToolTip": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\SOLIDapp\\SaidaEstoque.cs",
+              "RelativeToolTip": "SOLIDapp\\SaidaEstoque.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T18:24:03.197Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EntradaEstoque.cs",
+              "DocumentMoniker": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\SOLIDapp\\EntradaEstoque.cs",
+              "RelativeDocumentMoniker": "SOLIDapp\\EntradaEstoque.cs",
+              "ToolTip": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\SOLIDapp\\EntradaEstoque.cs",
+              "RelativeToolTip": "SOLIDapp\\EntradaEstoque.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T18:23:39.368Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IMovimentacaoEstoque.cs",
+              "DocumentMoniker": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\SOLIDapp\\interfaces\\IMovimentacaoEstoque.cs",
+              "RelativeDocumentMoniker": "SOLIDapp\\interfaces\\IMovimentacaoEstoque.cs",
+              "ToolTip": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\SOLIDapp\\interfaces\\IMovimentacaoEstoque.cs",
+              "RelativeToolTip": "SOLIDapp\\interfaces\\IMovimentacaoEstoque.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T18:23:19.606Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FormControleEstoque.cs",
+              "DocumentMoniker": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\FormControleEstoque.cs",
+              "RelativeDocumentMoniker": "FormControleEstoque.cs",
+              "ToolTip": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\FormControleEstoque.cs",
+              "RelativeToolTip": "FormControleEstoque.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-02T00:47:39.216Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Produto.cs",
+              "DocumentMoniker": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\classes\\Produto.cs",
+              "RelativeDocumentMoniker": "classes\\Produto.cs",
+              "ToolTip": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\classes\\Produto.cs",
+              "RelativeToolTip": "classes\\Produto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-07T16:59:48.607Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "LancamentoEstoque.cs",
+              "DocumentMoniker": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\classes\\LancamentoEstoque.cs",
+              "RelativeDocumentMoniker": "classes\\LancamentoEstoque.cs",
+              "ToolTip": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\classes\\LancamentoEstoque.cs",
+              "RelativeToolTip": "classes\\LancamentoEstoque.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAABcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T00:17:53.489Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-03T00:02:34.361Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ContoladorEstoque.cs",
+              "DocumentMoniker": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\classes\\ContoladorEstoque.cs",
+              "RelativeDocumentMoniker": "classes\\ContoladorEstoque.cs",
+              "ToolTip": "C:\\Users\\perre\\OneDrive\\Documentos\\GitHub\\csharp-java\\WindowsFormsApp1\\classes\\ContoladorEstoque.cs",
+              "RelativeToolTip": "classes\\ContoladorEstoque.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T23:01:06.082Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

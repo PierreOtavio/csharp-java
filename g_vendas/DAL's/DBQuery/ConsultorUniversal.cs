@@ -41,7 +41,7 @@ namespace Teste1.Data.Query
                 if (parts.Length == 2)
                 {
                     var paramName = parts[1].Trim();
-                    query += " WHERE " + parts[0].Trim() + " = " + paramName;
+                    query += "WHERE " + parts[0].Trim() + " = " + paramName;
                     parameters.Add(new MySqlParameter(paramName, parts[1].Trim()));
                 }
             }

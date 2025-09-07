@@ -37,7 +37,7 @@ namespace g_vendas.UI
             picLogo = new PictureBox();
             picLogo.Dock = DockStyle.Fill;
             picLogo.SizeMode = PictureBoxSizeMode.Zoom;
-            picLogo.Image = Image.FromFile(@"C:\Users\perre\OneDrive\Área de Trabalho\Pizzas\Pizza da Grá.png");
+            picLogo.Image = Image.FromFile(@"C:\Users\perre\OneDrive\Área de Trabalho\Pizza's\Pizza da Grá.png");
             panelLogo.Controls.Add(picLogo);
 
             // Label de boas-vindas
